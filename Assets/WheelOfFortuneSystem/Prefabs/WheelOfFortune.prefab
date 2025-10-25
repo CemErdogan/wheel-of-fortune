@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4118172347534750102}
   - component: {fileID: 3455581110779815484}
   - component: {fileID: 1235107480524205645}
+  - component: {fileID: 8964628188135810355}
   m_Layer: 5
   m_Name: ui_button_spin
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8964628188135810355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096572058364104997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f8463c4d4d4dcbb7a0b1c0ff96efd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1235107480524205645}
 --- !u!1 &4119757793081733459
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +509,7 @@ GameObject:
   - component: {fileID: 5128870818411029519}
   - component: {fileID: 367632364556252537}
   - component: {fileID: 2661509107927553033}
+  - component: {fileID: 4745815498472170570}
   - component: {fileID: 1361948245765281740}
   m_Layer: 5
   m_Name: WheelOfFortune
@@ -558,6 +573,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0516d1cca73f49c5a7825dcbd86cfd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinButtonObject: {fileID: 1096572058364104997}
+  wheelOfFortuneObject: {fileID: 5128870818411029518}
+  wheelOfFortuneViewObject: {fileID: 5128870818411029518}
+--- !u!114 &4745815498472170570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128870818411029518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39624013a09247fc939a29e8a4a88612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1361948245765281740
