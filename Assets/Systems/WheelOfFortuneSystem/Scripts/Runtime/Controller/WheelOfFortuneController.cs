@@ -1,0 +1,45 @@
+﻿using StateMachineSystem;
+using Zenject;
+
+namespace WheelOfFortuneSystem
+{
+    public class WheelOfFortuneController : IWheelOfFortuneController
+    {
+        [Inject] public IWheelOfFortuneModel Model { get; }
+        [Inject] public IWheelOfFortuneView View { get; }
+        [Inject] public StateMachine StateMachine { get; }
+        [Inject] public ISpinButton SpinButton { get; }
+        
+        public void Init()
+        {
+            SpinButton.OnButtonClick += SpinButtonClickedCallback;
+            PrepareFsm();
+        }
+
+        public void Deinit()
+        {
+            SpinButton.OnButtonClick -= SpinButtonClickedCallback;
+        }
+
+        public void Tick()
+        {
+            StateMachine.Tick();
+        }
+        
+        private void PrepareFsm()
+        {
+            var idleState = new WheelOfFortuneIdleState();
+            var processingState = new WheelOfFortuneProcessingState();
+            
+            StateMachine.AddTransition(idleState, processingState, new FuncPredicate(() => SpinButton.IsClicked));
+            StateMachine.AddTransition(processingState, idleState, new FuncPredicate(() => !SpinButton.IsClicked));
+            
+            StateMachine.SetState(idleState);
+        }
+
+        private void SpinButtonClickedCallback()
+        {
+            SpinButton.SetInteractable(false);
+        }
+    }
+}

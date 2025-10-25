@@ -10,8 +10,9 @@ namespace WheelOfFortuneSystem
        [SerializeField] private Button button;
        
         public event Action OnButtonClick = delegate { };
+       public bool IsClicked => !button.interactable;
 
-       private void OnEnable()
+        private void OnEnable()
        {
            button.onClick.AddListener(ButtonClickCallback);
        }
@@ -21,6 +22,12 @@ namespace WheelOfFortuneSystem
            button.onClick.RemoveListener(ButtonClickCallback);
        }
 
+
+       public void SetInteractable(bool interactable)
+       {
+              button.interactable = interactable;
+       }
+       
        private void ButtonClickCallback()
        {
            OnButtonClick?.Invoke();

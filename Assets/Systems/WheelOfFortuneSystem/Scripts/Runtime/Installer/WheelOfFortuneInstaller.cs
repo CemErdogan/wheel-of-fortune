@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using StateMachineSystem;
+using UnityEngine;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -12,6 +13,8 @@ namespace WheelOfFortuneSystem
         public override void InstallBindings()
         {
             Container.Bind<ISpinButton>().To<SpinButton>().FromComponentOn(spinButtonObject).AsSingle();
+
+            Container.Bind<StateMachine>().FromNew().AsSingle();
                 
             Container.Bind<IWheelOfFortuneModel>().To<WheelOfFortuneModel>().FromNew().AsSingle();
             Container.Bind<IWheelOfFortuneView>().To<WheelOfFortuneView>().FromComponentOn(wheelOfFortuneViewObject).AsSingle();

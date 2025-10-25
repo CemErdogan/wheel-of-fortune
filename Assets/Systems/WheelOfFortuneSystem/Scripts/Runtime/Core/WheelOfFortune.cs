@@ -16,5 +16,10 @@ namespace WheelOfFortuneSystem
         {
             Controller.Deinit();
         }
+
+        private void Update()
+        {
+            Controller.Tick();
+        }
     }
 }
