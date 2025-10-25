@@ -575,6 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0516d1cca73f49c5a7825dcbd86cfd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wheelOfFortuneConfig: {fileID: 11400000, guid: af778b234c209b34290789985ad7c8f9,
+    type: 2}
   spinButtonObject: {fileID: 1096572058364104997}
   wheelOfFortuneObject: {fileID: 5128870818411029518}
   wheelOfFortuneViewObject: {fileID: 5128870818411029518}
@@ -602,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb77a0f5cdca4f798567e78b95542d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateTransform: {fileID: 5128870817580454733}
 --- !u!1 &5128870818579154564
 GameObject:
   m_ObjectHideFlags: 0

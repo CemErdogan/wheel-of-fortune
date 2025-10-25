@@ -1,4 +1,5 @@
 ﻿using StateMachineSystem;
+using UnityEngine;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -9,6 +10,8 @@ namespace WheelOfFortuneSystem
         [Inject] public IWheelOfFortuneView View { get; }
         [Inject] public StateMachine StateMachine { get; }
         [Inject] public ISpinButton SpinButton { get; }
+        
+        [Inject] private readonly WheelOfFortuneConfig _config;
         
         public void Init()
         {
@@ -40,6 +43,12 @@ namespace WheelOfFortuneSystem
         private void SpinButtonClickedCallback()
         {
             SpinButton.SetInteractable(false);
+            var testVal = new Vector3(0, 0, 120);
+            var duration = Random.Range(_config.SpinDuration.x, _config.SpinDuration.y);
+            View.PlaySpinAnimation(testVal, duration, _config.SpinEase, ()=>
+            {
+                SpinButton.SetInteractable(true);
+            });
         }
     }
 }

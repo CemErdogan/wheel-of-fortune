@@ -6,12 +6,16 @@ namespace WheelOfFortuneSystem
 {
     public class WheelOfFortuneInstaller : MonoInstaller
     {
+        [SerializeField] private WheelOfFortuneConfig wheelOfFortuneConfig;
+        [Space]
         [SerializeField] private GameObject spinButtonObject;
         [SerializeField] private GameObject wheelOfFortuneObject;
         [SerializeField] private GameObject wheelOfFortuneViewObject;
         
         public override void InstallBindings()
         {
+            Container.Bind<WheelOfFortuneConfig>().FromInstance(wheelOfFortuneConfig).AsSingle();
+            
             Container.Bind<ISpinButton>().To<SpinButton>().FromComponentOn(spinButtonObject).AsSingle();
 
             Container.Bind<StateMachine>().FromNew().AsSingle();
