@@ -8,6 +8,7 @@ namespace WheelOfFortuneSystem
     {
         [Header("Project References")]
         [SerializeField] private WheelOfFortuneConfig wheelOfFortuneConfig;
+        [SerializeField] private WheelItemContainer wheelItemContainer;
         [Space]
         [SerializeField] private WheelItem wheelItemPrefab;
         [Space, Header("Local References")]
@@ -20,6 +21,7 @@ namespace WheelOfFortuneSystem
         public override void InstallBindings()
         {
             Container.Bind<WheelOfFortuneConfig>().FromInstance(wheelOfFortuneConfig).AsSingle();
+            Container.Bind<WheelItemContainer>().FromInstance(wheelItemContainer).AsSingle();
 
             Container.BindFactory<WheelItem, WheelItem.Factory>()
                 .FromComponentInNewPrefab(wheelItemPrefab)

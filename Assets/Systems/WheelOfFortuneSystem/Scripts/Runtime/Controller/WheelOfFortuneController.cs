@@ -1,4 +1,5 @@
-﻿using StateMachineSystem;
+﻿using CoreSystem;
+using StateMachineSystem;
 using UnityEngine;
 using Zenject;
 
@@ -12,21 +13,36 @@ namespace WheelOfFortuneSystem
         [Inject] public ISpinButton SpinButton { get; }
         
         [Inject] private readonly WheelOfFortuneConfig _config;
+        [Inject] private readonly WheelItemContainer _itemContainer;
+        [Inject] private readonly WheelItem.Factory _itemFactory;
         
         public void Init()
         {
-            SpinButton.OnButtonClick += SpinButtonClickedCallback;
+            SetCallbacks(true);
             PrepareFsm();
+            PrepareWheelItems();
         }
 
         public void Deinit()
         {
-            SpinButton.OnButtonClick -= SpinButtonClickedCallback;
+            SetCallbacks(false);
         }
 
         public void Tick()
         {
             StateMachine.Tick();
+        }
+
+        private void SetCallbacks(bool value)
+        {
+            if (value)
+            {
+                SpinButton.OnButtonClick += SpinButtonClickedCallback;
+            }
+            else
+            {
+                SpinButton.OnButtonClick -= SpinButtonClickedCallback;
+            }
         }
         
         private void PrepareFsm()
@@ -38,6 +54,17 @@ namespace WheelOfFortuneSystem
             StateMachine.AddTransition(processingState, idleState, new FuncPredicate(() => !SpinButton.IsClicked));
             
             StateMachine.SetState(idleState);
+        }
+        
+        private void PrepareWheelItems()
+        {
+            var angle = 360 / _config.WheelItemSize;
+            for (int i = 0; i < _config.WheelItemSize; i++)
+            {
+                var item = _itemFactory.Create();
+                var data = _itemContainer.WheelItemsData.GetRandom();
+                item.Prepare(data, i * angle);
+            }
         }
 
         private void SpinButtonClickedCallback()

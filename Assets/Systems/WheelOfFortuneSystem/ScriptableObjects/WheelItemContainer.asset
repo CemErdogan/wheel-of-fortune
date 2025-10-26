@@ -15,5 +15,41 @@ MonoBehaviour:
   <WheelItemsData>k__BackingField:
   - <Icon>k__BackingField: {fileID: 21300000, guid: 7d9f622d59990954cae29c1c805ca814,
       type: 3}
-    <Id>k__BackingField: Cash
+    <Id>k__BackingField: cash
+    <Amount>k__BackingField: 5
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 3564c2c84fea79148a32c62be14dcae4,
+      type: 3}
+    <Id>k__BackingField: chest_big
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 78f7a438f8b28914a8481f7c499822c1,
+      type: 3}
+    <Id>k__BackingField: chest_small
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 9151319115ed87b4f97e5973fb2fb859,
+      type: 3}
+    <Id>k__BackingField: chest_standart
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 956b572a9ac4baf438d502212717bd59,
+      type: 3}
+    <Id>k__BackingField: chest_super
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 8d14d7f2e2e1b344587e3f00b12dd615,
+      type: 3}
+    <Id>k__BackingField: chest_bronze
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 527bf27932bf5e340b4280d05e7169a0,
+      type: 3}
+    <Id>k__BackingField: chest_silver
+    <Amount>k__BackingField: 1
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: af6fc9ac236249d44ad9a90fc964c39f,
+      type: 3}
+    <Id>k__BackingField: chest_gold
+    <Amount>k__BackingField: 1
     <Weight>k__BackingField: 12

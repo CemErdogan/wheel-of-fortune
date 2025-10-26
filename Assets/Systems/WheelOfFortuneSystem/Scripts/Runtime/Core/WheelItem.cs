@@ -7,9 +7,10 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly IWheelItemController _controller;
 
-        public void Prepare(WheelItemData data)
+        public void Prepare(WheelItemData data, float angle)
         {
             _controller.Prepare(data);
+            transform.RotateAround(transform.position, Vector3.back, angle);
         }
         
         public class Factory : PlaceholderFactory<WheelItem> { }
