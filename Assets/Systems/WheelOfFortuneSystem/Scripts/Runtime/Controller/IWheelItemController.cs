@@ -5,6 +5,6 @@
         IWheelItemView View { get; }
         WheelItemModel Model { get; }
         
-        void Prepare(WheelItemData data);
+        void Prepare(WheelItemData data, int multiplier);
     }
 }

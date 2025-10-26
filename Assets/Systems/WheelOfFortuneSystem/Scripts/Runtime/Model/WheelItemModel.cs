@@ -2,6 +2,6 @@
 {
     public class WheelItemModel : IWheelItemModel
     {
-        public WheelItemData Data { get; set; }
+        public int Amount { get; set; }
     }
 }

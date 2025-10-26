@@ -19,9 +19,12 @@ MonoBehaviour:
   - <BaseType>k__BackingField: 0
     <Image>k__BackingField: {fileID: 21300000, guid: 32887b1bcd2e9df46bdf4e3eecfb6374,
       type: 3}
+    <Multiplier>k__BackingField: 1
   - <BaseType>k__BackingField: 1
     <Image>k__BackingField: {fileID: 21300000, guid: b017b5748766aca4b8199fdeb98843db,
       type: 3}
+    <Multiplier>k__BackingField: 2
   - <BaseType>k__BackingField: 2
     <Image>k__BackingField: {fileID: 21300000, guid: e2b82f51f776f644d9efddcd9aabbfb1,
       type: 3}
+    <Multiplier>k__BackingField: 3

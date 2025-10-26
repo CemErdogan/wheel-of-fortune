@@ -18,12 +18,15 @@ namespace WheelOfFortuneSystem
         public void Init()
         {
             Model.BaseType = WheelOfFortuneBaseType.Bronze;
-            View.SetBaseVisual(_config.GetBaseSprite(Model.BaseType));
+            var multiplier = _config.GetBaseMultiplier(Model.BaseType);
+            View.SetBaseImage(_config.GetBaseSprite(Model.BaseType));
+            View.SetHeaderText($"{Model.BaseType} SPIN");
+            View.SetInfoText($"Up To x{multiplier} Rewards");
             
             SetCallbacks(true);
             PrepareFsm();
             
-            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent));
+            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent, multiplier));
         }
 
         public void Deinit()

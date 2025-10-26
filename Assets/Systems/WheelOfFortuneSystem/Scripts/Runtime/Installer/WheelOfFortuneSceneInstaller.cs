@@ -46,11 +46,13 @@ namespace WheelOfFortuneSystem
     {
         public readonly int Count;
         public readonly Transform Parent;
+        public readonly int Multiplier;
             
-        public OnCreateItemsSignal(int count, Transform parent)
+        public OnCreateItemsSignal(int count, Transform parent, int multiplier)
         {
             Count = count;
             Parent = parent;
+            Multiplier = multiplier;
         }
     }
 }

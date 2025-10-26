@@ -7,10 +7,10 @@ namespace WheelOfFortuneSystem
         [Inject] public IWheelItemView View { get; }
         [Inject] public WheelItemModel Model { get; }
         
-        public void Prepare(WheelItemData data)
+        public void Prepare(WheelItemData data, int multiplier)
         {
-            Model.Data = data;
-            View.Prepare(data.Amount, data.Icon);
+            Model.Amount = data.Amount * multiplier;
+            View.Prepare(Model.Amount, data.Icon);
         }
     }
 }

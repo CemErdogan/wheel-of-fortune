@@ -22,5 +22,17 @@ namespace WheelOfFortuneSystem
             Debug.LogError($"[WheelOfFortuneConfig] Base sprite for type {baseType} not found. Returning null.");
             return null;
         }
+
+        public int GetBaseMultiplier(WheelOfFortuneBaseType baseType)
+        {
+            foreach (var baseData in BaseData)
+            {
+                if (baseData.BaseType == baseType)
+                    return baseData.Multiplier;
+            }
+
+            Debug.LogError("[WheelOfFortuneConfig] Default base multiplier not found. Returning 1.");
+            return 1;
+        }
     }
 }

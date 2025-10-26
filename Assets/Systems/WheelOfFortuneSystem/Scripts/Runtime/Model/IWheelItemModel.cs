@@ -2,6 +2,6 @@
 {
     public interface IWheelItemModel
     {
-        public WheelItemData Data { get; set; }
+        int Amount { get; set; }
     }
 }
