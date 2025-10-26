@@ -553,6 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1712953922}
   - component: {fileID: 1712953921}
+  - component: {fileID: 1712953923}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -573,7 +574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1712953923}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -606,6 +608,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1712953923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712953920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc5c2b9994b42c691a6287904b017b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelItemPrefab: {fileID: 799060307529908599, guid: 0964a4594c8850d43b155522e327e940,
+    type: 3}
+  canvasTransform: {fileID: 1973335492}
 --- !u!1 &1864443751
 GameObject:
   m_ObjectHideFlags: 0

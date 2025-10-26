@@ -10,9 +10,10 @@ namespace WheelOfFortuneSystem
         [Inject] public IWheelOfFortuneView View { get; }
         [Inject] public StateMachine StateMachine { get; }
         [Inject] public ISpinButton SpinButton { get; }
+        [Inject(Id = WheelOfFortuneInstaller.WheelItemParentId)] private readonly Transform _itemParent;
         
+        [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly WheelOfFortuneConfig _config;
-        [Inject] private readonly WheelItem.Factory _itemFactory;
         
         public void Init()
         {
@@ -21,7 +22,8 @@ namespace WheelOfFortuneSystem
             
             SetCallbacks(true);
             PrepareFsm();
-            PrepareWheelItems();
+            
+            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent));
         }
 
         public void Deinit()
@@ -55,16 +57,6 @@ namespace WheelOfFortuneSystem
             StateMachine.AddTransition(processingState, idleState, new FuncPredicate(() => !SpinButton.IsClicked));
             
             StateMachine.SetState(idleState);
-        }
-        
-        private void PrepareWheelItems()
-        {
-            var angle = 360 / _config.WheelItemSize;
-            for (int i = 0; i < _config.WheelItemSize; i++)
-            {
-                var item = _itemFactory.Create();
-                item.Prepare(i * angle);
-            }
         }
 
         private void SpinButtonClickedCallback()

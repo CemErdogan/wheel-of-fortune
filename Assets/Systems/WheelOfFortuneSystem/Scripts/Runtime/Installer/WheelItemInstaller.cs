@@ -18,5 +18,18 @@ namespace WheelOfFortuneSystem
             Container.Bind<IWheelItemView>().To<WheelItemView>().FromComponentOn(wheelItemViewObject).AsSingle();
             Container.Bind<IWheelItemController>().To<WheelItemController>().AsSingle();
         }
+        
+        private void OnValidate()
+        {
+            if (wheelItemViewObject == null)
+            {
+                Debug.LogWarning("Wheel Item View Object is not assigned in the WheelItemInstaller.");
+            }
+            
+            if (wheelItemConfig == null)
+            {
+                Debug.LogWarning("Wheel Item Config is not assigned in the WheelItemInstaller.");
+            }
+        }
     }
 }
