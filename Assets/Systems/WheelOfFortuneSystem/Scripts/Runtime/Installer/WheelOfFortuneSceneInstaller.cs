@@ -5,13 +5,21 @@ namespace WheelOfFortuneSystem
 {
     public class WheelOfFortuneSceneInstaller : MonoInstaller
     {
+        [Header("Project References")]
+        [SerializeField] private WheelOfFortune wheelOfFortunePrefab;
         [SerializeField] private WheelItem wheelItemPrefab;
+        [Space, Header("Scene References")]
         [SerializeField] private Transform canvasTransform;
         
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<WheelOfFortuneManager>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WheelItemManager>().AsSingle().NonLazy();
             
+            Container.BindFactory<WheelOfFortune, WheelOfFortune.Factory>()
+                .FromComponentInNewPrefab(wheelOfFortunePrefab)
+                .UnderTransform(canvasTransform)
+                .AsSingle();
             Container.BindFactory<WheelItem, WheelItem.Factory>()
                 .FromComponentInNewPrefab(wheelItemPrefab)
                 .UnderTransform(canvasTransform)

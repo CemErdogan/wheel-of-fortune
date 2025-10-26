@@ -21,5 +21,7 @@ namespace WheelOfFortuneSystem
         {
             _controller.Tick();
         }
+        
+        public class Factory : PlaceholderFactory<WheelOfFortune> { }
     }
 }
