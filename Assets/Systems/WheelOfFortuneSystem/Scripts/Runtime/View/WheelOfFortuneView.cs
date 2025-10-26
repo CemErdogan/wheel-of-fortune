@@ -23,5 +23,18 @@ namespace WheelOfFortuneSystem
         {
             baseImage.sprite = newImage;
         }
+
+        private void OnValidate()
+        {
+            if (rotateTransform == null)
+            {
+                Debug.LogWarning("Rotate Transform is not assigned in the WheelOfFortuneView.");
+            }
+
+            if (baseImage == null)
+            {
+                Debug.LogWarning("Base Image is not assigned in the WheelOfFortuneView.");
+            }
+        }
     }
 }

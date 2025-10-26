@@ -14,5 +14,18 @@ namespace WheelOfFortuneSystem
             amountText.SetText(amount.ToString());
             iconImage.sprite = icon;
         }
+
+        private void OnValidate()
+        {
+            if (iconImage == null)
+            {
+                Debug.LogWarning("Icon Image is not assigned in the WheelItemView.");
+            }
+
+            if (amountText == null)
+            {
+                Debug.LogWarning("Amount Text is not assigned in the WheelItemView.");
+            }
+        }
     }
 }
