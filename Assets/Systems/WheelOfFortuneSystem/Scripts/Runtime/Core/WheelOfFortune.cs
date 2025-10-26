@@ -3,23 +3,23 @@ using Zenject;
 
 namespace WheelOfFortuneSystem
 {
-    public class WheelOfFortune : MonoBehaviour, IWheelOfFortune
+    public class WheelOfFortune : MonoBehaviour
     {
-        [Inject] public IWheelOfFortuneController Controller { get; }
+        [Inject] private readonly IWheelOfFortuneController _controller;
 
         private void Start()
         {
-            Controller.Init();
+            _controller.Init();
         }
 
         private void OnDestroy()
         {
-            Controller.Deinit();
+            _controller.Deinit();
         }
 
         private void Update()
         {
-            Controller.Tick();
+            _controller.Tick();
         }
     }
 }

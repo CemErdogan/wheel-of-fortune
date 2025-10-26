@@ -6,15 +6,25 @@ namespace WheelOfFortuneSystem
 {
     public class WheelOfFortuneInstaller : MonoInstaller
     {
+        [Header("Project References")]
         [SerializeField] private WheelOfFortuneConfig wheelOfFortuneConfig;
         [Space]
+        [SerializeField] private WheelItem wheelItemPrefab;
+        [Space, Header("Local References")]
         [SerializeField] private GameObject spinButtonObject;
         [SerializeField] private GameObject wheelOfFortuneObject;
         [SerializeField] private GameObject wheelOfFortuneViewObject;
+        [Space]
+        [SerializeField] private Transform wheelItemParent;
         
         public override void InstallBindings()
         {
             Container.Bind<WheelOfFortuneConfig>().FromInstance(wheelOfFortuneConfig).AsSingle();
+
+            Container.BindFactory<WheelItem, WheelItem.Factory>()
+                .FromComponentInNewPrefab(wheelItemPrefab)
+                .UnderTransform(wheelItemParent)
+                .AsSingle();
             
             Container.Bind<ISpinButton>().To<SpinButton>().FromComponentOn(spinButtonObject).AsSingle();
 
@@ -23,8 +33,6 @@ namespace WheelOfFortuneSystem
             Container.Bind<IWheelOfFortuneModel>().To<WheelOfFortuneModel>().FromNew().AsSingle();
             Container.Bind<IWheelOfFortuneView>().To<WheelOfFortuneView>().FromComponentOn(wheelOfFortuneViewObject).AsSingle();
             Container.Bind<IWheelOfFortuneController>().To<WheelOfFortuneController>().FromNew().AsSingle();
-            
-            Container.Bind<IWheelOfFortune>().To<WheelOfFortune>().FromComponentOn(wheelOfFortuneObject).AsSingle().NonLazy();
         }
 
         private void OnValidate()

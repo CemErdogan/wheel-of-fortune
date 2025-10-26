@@ -577,9 +577,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelOfFortuneConfig: {fileID: 11400000, guid: af778b234c209b34290789985ad7c8f9,
     type: 2}
+  wheelItemPrefab: {fileID: 799060307529908599, guid: 0964a4594c8850d43b155522e327e940,
+    type: 3}
   spinButtonObject: {fileID: 1096572058364104997}
   wheelOfFortuneObject: {fileID: 5128870818411029518}
   wheelOfFortuneViewObject: {fileID: 5128870818411029518}
+  wheelItemParent: {fileID: 5128870817580454733}
 --- !u!114 &4745815498472170570
 MonoBehaviour:
   m_ObjectHideFlags: 0
