@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46fbada95894b3a93972f571dc34cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wheelItemConfig: {fileID: 11400000, guid: c10eb5135e754c747bf13b391c7d26b3, type: 2}
   wheelItemViewObject: {fileID: 6408277927025814735}
 --- !u!114 &799060307529908599
 MonoBehaviour:

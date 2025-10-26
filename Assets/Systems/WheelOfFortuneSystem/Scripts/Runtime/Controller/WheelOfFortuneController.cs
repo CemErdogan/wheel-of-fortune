@@ -1,5 +1,4 @@
-﻿using CoreSystem;
-using StateMachineSystem;
+﻿using StateMachineSystem;
 using UnityEngine;
 using Zenject;
 
@@ -13,11 +12,13 @@ namespace WheelOfFortuneSystem
         [Inject] public ISpinButton SpinButton { get; }
         
         [Inject] private readonly WheelOfFortuneConfig _config;
-        [Inject] private readonly WheelItemContainer _itemContainer;
         [Inject] private readonly WheelItem.Factory _itemFactory;
         
         public void Init()
         {
+            Model.BaseType = WheelOfFortuneBaseType.Bronze;
+            View.SetBaseVisual(_config.GetBaseSprite(Model.BaseType));
+            
             SetCallbacks(true);
             PrepareFsm();
             PrepareWheelItems();
@@ -62,8 +63,7 @@ namespace WheelOfFortuneSystem
             for (int i = 0; i < _config.WheelItemSize; i++)
             {
                 var item = _itemFactory.Create();
-                var data = _itemContainer.WheelItemsData.GetRandom();
-                item.Prepare(data, i * angle);
+                item.Prepare(i * angle);
             }
         }
 

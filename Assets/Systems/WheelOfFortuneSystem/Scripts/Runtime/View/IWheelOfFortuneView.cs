@@ -7,5 +7,6 @@ namespace WheelOfFortuneSystem
     public interface IWheelOfFortuneView
     {
         void PlaySpinAnimation(Vector3 targetRot, float duration, Ease ease, Action onComplete = null);
+        void SetBaseVisual(Sprite newImage);
     }
 }
