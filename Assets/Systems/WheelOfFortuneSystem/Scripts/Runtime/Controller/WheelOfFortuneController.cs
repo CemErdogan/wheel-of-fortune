@@ -26,7 +26,7 @@ namespace WheelOfFortuneSystem
             SetCallbacks(true);
             PrepareFsm();
             
-            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent, multiplier));
+            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent, multiplier, Model.BaseType));
         }
 
         public void Deinit()

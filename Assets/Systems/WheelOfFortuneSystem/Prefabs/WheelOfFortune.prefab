@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5128870816859213621}
   - component: {fileID: 5128870816859213620}
   m_Layer: 5
-  m_Name: ui_text_spin_header
+  m_Name: ui_text_spin_header_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 5128870817580454731}
   - component: {fileID: 5128870817580454730}
   m_Layer: 5
-  m_Name: ui_image_spin_base
+  m_Name: ui_image_spin_base_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 5128870818579154563}
   - component: {fileID: 5128870818579154562}
   m_Layer: 5
-  m_Name: ui_text_spin_info
+  m_Name: ui_text_spin_info_value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

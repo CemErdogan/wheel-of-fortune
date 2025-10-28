@@ -35,11 +35,13 @@ namespace WheelOfFortuneSystem
             var count = signal.Count;
             var parent = signal.Parent;
             var multiplier = signal.Multiplier;
+            var baseType = signal.BaseType;
+            
             var angle = 360 / count;
             for (int i = 0; i < count; i++)
             {
                 var item = _itemFactory.Create();
-                item.Prepare(parent, i * angle, multiplier);
+                item.Prepare(parent, i * angle, multiplier, baseType);
             }
         }
     }

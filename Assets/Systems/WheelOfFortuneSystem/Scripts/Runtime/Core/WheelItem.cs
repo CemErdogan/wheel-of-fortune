@@ -9,10 +9,10 @@ namespace WheelOfFortuneSystem
         [Inject] private readonly WheelItemConfig _config;
         [Inject] private readonly IWheelItemController _controller;
 
-        public void Prepare(Transform parent, float angle, int multiplier)
+        public void Prepare(Transform parent, float angle, int multiplier, WheelOfFortuneBaseType baseType)
         {
             transform.SetParent(parent);
-            _controller.Prepare(_config.WheelItemsData.GetRandom(), multiplier);
+            _controller.Prepare(_config.GetRandomData(baseType), multiplier);
             transform.RotateAround(transform.position, Vector3.back, angle);
         }
         

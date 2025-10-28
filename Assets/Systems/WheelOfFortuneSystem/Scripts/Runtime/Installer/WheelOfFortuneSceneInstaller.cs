@@ -47,12 +47,14 @@ namespace WheelOfFortuneSystem
         public readonly int Count;
         public readonly Transform Parent;
         public readonly int Multiplier;
+        public readonly WheelOfFortuneBaseType BaseType;
             
-        public OnCreateItemsSignal(int count, Transform parent, int multiplier)
+        public OnCreateItemsSignal(int count, Transform parent, int multiplier, WheelOfFortuneBaseType baseType)
         {
             Count = count;
             Parent = parent;
             Multiplier = multiplier;
+            BaseType = baseType;
         }
     }
 }

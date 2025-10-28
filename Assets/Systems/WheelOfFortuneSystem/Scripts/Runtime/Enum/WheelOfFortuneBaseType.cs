@@ -1,9 +1,12 @@
-﻿namespace WheelOfFortuneSystem
+﻿using System;
+
+namespace WheelOfFortuneSystem
 {
+    [Flags]
     public enum WheelOfFortuneBaseType
     {
-        Bronze = 0,
-        Silver = 1,
-        Gold = 2
+        Bronze = 1 << 0,
+        Silver = 1 << 1,
+        Gold = 1 << 2, 
     }
 }
