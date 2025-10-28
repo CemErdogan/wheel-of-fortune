@@ -2,6 +2,6 @@
 {
     public interface IZoneItemModel
     {
-        
+        int Index { get; set; }
     }
 }

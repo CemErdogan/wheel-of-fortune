@@ -39,11 +39,11 @@ namespace WheelOfFortuneSystem
         private void CreateItemsCallback(OnCreateZoneItemsSignal signal)
         {
             var parent = signal.Parent;
-            var itemCount = Mathf.CeilToInt(_zoneAreaManager.GetViewPortWidth() / _itemFactory.GetWidth() + _zoneAreaManager.GetItemSpacing());
+            var itemCount = Mathf.CeilToInt(_zoneAreaManager.GetViewPortWidth() / (_itemFactory.GetWidth() + _zoneAreaManager.GetItemSpacing()));
             for (int i = 0; i < itemCount; i++)
             {
                 var item = _itemFactory.Create();
-                item.Prepare(parent);
+                item.Prepare(parent, i + 1);
             }
         }
     }

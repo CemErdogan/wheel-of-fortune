@@ -4,5 +4,7 @@
     {
         IZoneItemModel Model { get; }
         IZoneItemView View { get; }
+
+        void Prepare(int index);
     }
 }

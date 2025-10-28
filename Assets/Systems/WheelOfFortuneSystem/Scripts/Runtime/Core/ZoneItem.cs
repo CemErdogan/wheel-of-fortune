@@ -7,9 +7,10 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly IZoneItemController _zoneItemController;
         
-        public void Prepare(RectTransform parent)
+        public void Prepare(RectTransform parent, int index)
         {
             transform.SetParent(parent);
+            _zoneItemController.Prepare(index);
         }
 
         public class Factory : PlaceholderFactory<ZoneItem>
