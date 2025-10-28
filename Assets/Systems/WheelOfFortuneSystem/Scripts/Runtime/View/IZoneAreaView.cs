@@ -5,5 +5,7 @@ namespace WheelOfFortuneSystem
     public interface IZoneAreaView
     {
         RectTransform GetItemParent();
+        float GetViewPortWidth();
+        float GetItemSpacing();
     }
 }

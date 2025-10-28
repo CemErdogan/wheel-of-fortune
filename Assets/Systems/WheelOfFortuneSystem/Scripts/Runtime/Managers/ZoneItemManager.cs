@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -9,6 +10,7 @@ namespace WheelOfFortuneSystem
         [Inject] private readonly ZoneItem.Factory _itemFactory;
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly ZoneAreaConfig _zoneAreaConfig;
+        [Inject] private readonly ZoneAreaManager _zoneAreaManager;
         
         private List<ZoneItem> _zoneItems = new();
         
@@ -37,7 +39,8 @@ namespace WheelOfFortuneSystem
         private void CreateItemsCallback(OnCreateZoneItemsSignal signal)
         {
             var parent = signal.Parent;
-            for (int i = 0; i < _zoneAreaConfig.ZoneItemCount; i++)
+            var itemCount = Mathf.CeilToInt(_zoneAreaManager.GetViewPortWidth() / _itemFactory.GetWidth() + _zoneAreaManager.GetItemSpacing());
+            for (int i = 0; i < itemCount; i++)
             {
                 var item = _itemFactory.Create();
                 item.Prepare(parent);

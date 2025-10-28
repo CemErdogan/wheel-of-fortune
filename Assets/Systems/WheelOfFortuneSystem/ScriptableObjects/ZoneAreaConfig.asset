@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64776277cf60458e9d6dac8e24fbf3e2, type: 3}
   m_Name: ZoneAreaConfig
   m_EditorClassIdentifier: 
-  <ZoneItemCount>k__BackingField: 6
+  <NormalZoneBaseType>k__BackingField: 1
+  <SpecialZoneTypesData>k__BackingField:
+  - <Id>k__BackingField: safe
+    <RepeatCount>k__BackingField: 5
+    <BaseType>k__BackingField: 2
+  - <Id>k__BackingField: super
+    <RepeatCount>k__BackingField: 30
+    <BaseType>k__BackingField: 4

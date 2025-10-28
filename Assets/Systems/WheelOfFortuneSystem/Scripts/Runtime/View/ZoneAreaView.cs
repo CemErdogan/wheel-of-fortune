@@ -15,6 +15,16 @@ namespace WheelOfFortuneSystem
             return contentTransform;
         }
 
+        public float GetViewPortWidth()
+        {
+            return viewportTransform.rect.width;
+        }
+
+        public float GetItemSpacing()
+        {
+            return horizontalLayoutGroup.spacing;
+        }
+
         private void OnValidate()
         {
             ValidationUtility.ValidateSerializedFields(this);

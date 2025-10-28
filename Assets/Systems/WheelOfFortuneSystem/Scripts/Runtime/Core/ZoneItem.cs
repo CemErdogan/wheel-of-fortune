@@ -11,7 +11,16 @@ namespace WheelOfFortuneSystem
         {
             transform.SetParent(parent);
         }
-        
-        public class Factory : Zenject.PlaceholderFactory<ZoneItem> { }
+
+        public class Factory : PlaceholderFactory<ZoneItem>
+        {
+            public float GetWidth()
+            {
+                var tempItem = Create();
+                var width = tempItem.GetComponent<RectTransform>().rect.width;
+                Destroy(tempItem.gameObject);
+                return width;
+            }
+        }
     }
 }

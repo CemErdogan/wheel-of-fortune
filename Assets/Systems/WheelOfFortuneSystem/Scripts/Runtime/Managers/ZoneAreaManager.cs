@@ -18,5 +18,15 @@ namespace WheelOfFortuneSystem
         {
             
         }
+
+        public float GetViewPortWidth()
+        {
+            return _zoneArea.GetViewPortWidth();
+        }
+
+        public float GetItemSpacing()
+        {
+            return _zoneArea.GetItemSpacing();
+        }
     }
 }
