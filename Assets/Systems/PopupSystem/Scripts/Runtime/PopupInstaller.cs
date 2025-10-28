@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CoreSystem;
+using UnityEngine;
 using Zenject;
 
 namespace PopupSystem
@@ -7,8 +8,8 @@ namespace PopupSystem
     {
         public const string PopupCanvasId = "PopupCanvasId";
         
-        [SerializeField] private PopupConfig config;
-        [SerializeField] private Canvas popupCanvas;
+        [SerializeField, ValidateNotNull] private PopupConfig config;
+        [SerializeField, ValidateNotNull] private Canvas popupCanvas;
         
         public override void InstallBindings()
         {
@@ -23,10 +24,7 @@ namespace PopupSystem
 
         private void OnValidate()
         {
-            if (config == null)
-            {
-                Debug.LogWarning("PopupConfig is not assigned in PopupInstaller!");
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
     

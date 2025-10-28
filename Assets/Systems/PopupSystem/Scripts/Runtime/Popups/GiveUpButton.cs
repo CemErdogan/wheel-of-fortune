@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CoreSystem;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,8 +7,8 @@ namespace PopupSystem.Popups
 {
     public class GiveUpButton : MonoBehaviour
     {
-        [SerializeField] private Popup popup;
-        [SerializeField] private Button button;
+        [SerializeField, ValidateNotNull] private Popup popup;
+        [SerializeField, ValidateNotNull] private Button button;
 
         private void OnEnable()
         {
@@ -28,10 +29,7 @@ namespace PopupSystem.Popups
 
         private void OnValidate()
         {
-            if (button == null)
-            {
-                button = GetComponentInChildren<Button>();
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
 }

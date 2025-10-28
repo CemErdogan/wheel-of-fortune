@@ -4,5 +4,8 @@
     {
         IZoneAreaModel Model { get; }
         IZoneAreaView View { get; }
+        
+        void Init();
+        void Deinit();
     }
 }

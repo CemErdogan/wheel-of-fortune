@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using CoreSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,8 @@ namespace WheelOfFortuneSystem
 {
     public class WheelItemView : MonoBehaviour, IWheelItemView
     {
-        [SerializeField] private Image iconImage;
-        [SerializeField] private TextMeshProUGUI amountText;
+        [SerializeField, ValidateNotNull] private Image iconImage;
+        [SerializeField, ValidateNotNull] private TextMeshProUGUI amountText;
         
         public void Prepare(int amount, Sprite icon)
         {
@@ -17,15 +18,7 @@ namespace WheelOfFortuneSystem
 
         private void OnValidate()
         {
-            if (iconImage == null)
-            {
-                Debug.LogWarning("Icon Image is not assigned in the WheelItemView.");
-            }
-
-            if (amountText == null)
-            {
-                Debug.LogWarning("Amount Text is not assigned in the WheelItemView.");
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
 }

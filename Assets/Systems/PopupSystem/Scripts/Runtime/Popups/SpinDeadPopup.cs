@@ -1,16 +1,17 @@
-﻿using DG.Tweening;
+﻿using CoreSystem;
+using DG.Tweening;
 using UnityEngine;
 
 namespace PopupSystem.Popups
 {
     public class SpinDeadPopup : Popup
     {
-        [SerializeField] private Transform iconTransform;
+        [SerializeField, ValidateNotNull] private Transform iconTransform;
         [SerializeField] private float iconStartScale;
         [SerializeField] private float iconAppearDuration = 0.2f;
         [SerializeField] private Ease iconAppearEase = Ease.InSine;
         [Space]
-        [SerializeField] private Transform target;
+        [SerializeField, ValidateNotNull] private Transform target;
         [Space]
         [SerializeField] private float appearStartScale = 1.1f;
         [SerializeField] private float appearTargetScale = 1f;
@@ -46,15 +47,7 @@ namespace PopupSystem.Popups
 
         private void OnValidate()
         {
-            if (iconTransform == null)
-            {
-                Debug.LogWarning("Icon Transform is not assigned in the SpinDeadPopup.");
-            }
-
-            if (target == null)
-            {
-                Debug.LogWarning("Target Transform is not assigned in the SpinDeadPopup.");
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
 }

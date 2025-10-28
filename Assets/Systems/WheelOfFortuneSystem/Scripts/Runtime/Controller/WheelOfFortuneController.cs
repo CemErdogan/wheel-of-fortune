@@ -12,7 +12,6 @@ namespace WheelOfFortuneSystem
         [Inject] public IWheelOfFortuneView View { get; }
         [Inject] public StateMachine StateMachine { get; }
         [Inject] public ISpinButton SpinButton { get; }
-        [Inject(Id = WheelOfFortuneInstaller.WheelItemParentId)] private readonly Transform _itemParent;
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly WheelOfFortuneConfig _config;
         
@@ -27,7 +26,7 @@ namespace WheelOfFortuneSystem
             SetCallbacks(true);
             PrepareFsm();
             
-            _signalBus.Fire(new OnCreateItemsSignal(_config.WheelItemSize, _itemParent, multiplier, Model.BaseType));
+            _signalBus.Fire(new OnCreateWheelItemsSignal(_config.WheelItemSize, View.GetItemParent(), multiplier, Model.BaseType));
         }
 
         public void Deinit()

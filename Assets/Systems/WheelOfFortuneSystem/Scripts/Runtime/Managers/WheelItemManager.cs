@@ -45,15 +45,15 @@ namespace WheelOfFortuneSystem
         {
             if (value)
             {
-                _signalBus.Subscribe<OnCreateItemsSignal>(CreateItemsCallback);
+                _signalBus.Subscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
             }
             else
             {
-                _signalBus.Unsubscribe<OnCreateItemsSignal>(CreateItemsCallback);
+                _signalBus.Unsubscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
             }
         }
         
-        private void CreateItemsCallback(OnCreateItemsSignal signal)
+        private void CreateItemsCallback(OnCreateWheelItemsSignal signal)
         {
             var count = signal.Count;
             var parent = signal.Parent;

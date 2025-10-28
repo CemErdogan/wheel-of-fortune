@@ -7,6 +7,11 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly IZoneItemController _zoneItemController;
         
+        public void Prepare(RectTransform parent)
+        {
+            transform.SetParent(parent);
+        }
+        
         public class Factory : Zenject.PlaceholderFactory<ZoneItem> { }
     }
 }

@@ -353,5 +353,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 5484331943430216354}
   viewportTransform: {fileID: 5484331942710510415}
-  contentPanelTransform: {fileID: 5484331942598916496}
+  contentTransform: {fileID: 5484331942598916496}
   horizontalLayoutGroup: {fileID: 5484331942598916497}

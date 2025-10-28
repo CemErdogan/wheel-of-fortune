@@ -10,5 +10,6 @@ namespace WheelOfFortuneSystem
         void SetBaseImage(Sprite newImage);
         void SetHeaderText(string text);
         void SetInfoText(string text);
+        Transform GetItemParent();
     }
 }

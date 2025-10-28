@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTransform: {fileID: 5128870817580454733}
+  itemParentTransform: {fileID: 5128870817580454733}
   baseImage: {fileID: 5128870817580454730}
   headerText: {fileID: 5128870816859213620}
   infoText: {fileID: 5128870818579154562}

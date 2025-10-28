@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CoreSystem;
+using UnityEngine;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -6,15 +7,23 @@ namespace WheelOfFortuneSystem
     public class WheelOfFortuneSceneInstaller : MonoInstaller
     {
         [Header("Project References")]
-        [SerializeField] private WheelOfFortune wheelOfFortunePrefab;
-        [SerializeField] private WheelItem wheelItemPrefab;
-        [SerializeField] private ZoneArea zoneAreaPrefab;
-        [SerializeField] private ZoneItem zoneItemPrefab;
+        [SerializeField, ValidateNotNull] private ZoneAreaConfig zoneAreaConfig;
+        [SerializeField, ValidateNotNull] private WheelItemConfig wheelItemConfig;
+        [SerializeField, ValidateNotNull] private WheelOfFortuneConfig wheelOfFortuneConfig;
+        [Space]
+        [SerializeField, ValidateNotNull] private WheelOfFortune wheelOfFortunePrefab;
+        [SerializeField, ValidateNotNull] private WheelItem wheelItemPrefab;
+        [SerializeField, ValidateNotNull] private ZoneArea zoneAreaPrefab;
+        [SerializeField, ValidateNotNull] private ZoneItem zoneItemPrefab;
         [Space, Header("Scene References")]
-        [SerializeField] private Transform canvasTransform;
+        [SerializeField, ValidateNotNull] private Transform canvasTransform;
         
         public override void InstallBindings()
         {
+            Container.Bind<WheelOfFortuneConfig>().FromInstance(wheelOfFortuneConfig).AsSingle();
+            Container.Bind<WheelItemConfig>().FromInstance(wheelItemConfig).AsSingle();
+            Container.Bind<ZoneAreaConfig>().FromInstance(zoneAreaConfig).AsSingle();
+            
             Container.BindInterfacesAndSelfTo<WheelOfFortuneManager>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WheelItemManager>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ZoneAreaManager>().FromNew().AsSingle().NonLazy();
@@ -37,47 +46,40 @@ namespace WheelOfFortuneSystem
                 .UnderTransform(canvasTransform)
                 .AsSingle();
             
-            Container.DeclareSignal<OnCreateItemsSignal>();
+            Container.DeclareSignal<OnCreateWheelItemsSignal>();
             Container.DeclareSignal<OnSpinStartedSignal>();
+            Container.DeclareSignal<OnCreateZoneItemsSignal>();
         }
         
         private void OnValidate()
         {
-            if (wheelItemPrefab == null)
-            {
-                Debug.LogWarning("Wheel Item Prefab is not assigned in the WheelOfFortuneSceneInstaller.");
-            }
-
-            if (canvasTransform == null)
-            {
-                Debug.LogWarning("Canvas Transform is not assigned in the WheelOfFortuneSceneInstaller.");
-            }
-
-            if (wheelOfFortunePrefab == null)
-            {
-                Debug.LogWarning("Wheel Of Fortune Prefab is not assigned in the WheelOfFortuneSceneInstaller.");
-            }
-            
-            if (zoneAreaPrefab == null)
-            {
-                Debug.LogWarning("Zone Area Prefab is not assigned in the WheelOfFortuneSceneInstaller.");
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
     
-    public struct OnCreateItemsSignal
+    public struct OnCreateWheelItemsSignal
     {
         public readonly int Count;
         public readonly Transform Parent;
         public readonly int Multiplier;
         public readonly WheelOfFortuneBaseType BaseType;
             
-        public OnCreateItemsSignal(int count, Transform parent, int multiplier, WheelOfFortuneBaseType baseType)
+        public OnCreateWheelItemsSignal(int count, Transform parent, int multiplier, WheelOfFortuneBaseType baseType)
         {
             Count = count;
             Parent = parent;
             Multiplier = multiplier;
             BaseType = baseType;
+        }
+    }
+    
+    public struct OnCreateZoneItemsSignal
+    {
+        public readonly RectTransform Parent;
+            
+        public OnCreateZoneItemsSignal(RectTransform parent)
+        {
+            Parent = parent;
         }
     }
 

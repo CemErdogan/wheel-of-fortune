@@ -1,4 +1,5 @@
 ﻿using System;
+using CoreSystem;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -8,9 +9,9 @@ namespace WheelOfFortuneSystem
 {
     public class WheelOfFortuneView : MonoBehaviour, IWheelOfFortuneView
     {
-        [SerializeField] private Transform rotateTransform;
-        [SerializeField] private Image baseImage;
-        [SerializeField] private TextMeshProUGUI headerText, infoText;
+        [SerializeField, ValidateNotNull] private Transform rotateTransform, itemParentTransform;
+        [SerializeField, ValidateNotNull] private Image baseImage;
+        [SerializeField, ValidateNotNull] private TextMeshProUGUI headerText, infoText;
         
         public void PlaySpinAnimation(Vector3 targetRot, float duration, Ease ease, Action onComplete = null)
         {
@@ -35,27 +36,14 @@ namespace WheelOfFortuneSystem
             infoText.SetText(text);
         }
 
+        public Transform GetItemParent()
+        {
+            return itemParentTransform;
+        }
+
         private void OnValidate()
         {
-            if (rotateTransform == null)
-            {
-                Debug.LogWarning("Rotate Transform is not assigned in the WheelOfFortuneView.");
-            }
-
-            if (baseImage == null)
-            {
-                Debug.LogWarning("Base Image is not assigned in the WheelOfFortuneView.");
-            }
-            
-            if (headerText == null)
-            {
-                Debug.LogWarning("Header Text is not assigned in the WheelOfFortuneView.");
-            }
-            
-            if (infoText == null)
-            {
-                Debug.LogWarning("Info Text is not assigned in the WheelOfFortuneView.");
-            }
+            ValidationUtility.ValidateSerializedFields(this);
         }
     }
 }
