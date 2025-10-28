@@ -18,7 +18,13 @@ MonoBehaviour:
     <Id>k__BackingField: cash
     <Amount>k__BackingField: 5
     <AppearType>k__BackingField: -1
-    <Weight>k__BackingField: 18
+    <Weight>k__BackingField: 12
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 00199fc459a07384cb42d30eb47f83cc,
+      type: 3}
+    <Id>k__BackingField: gold
+    <Amount>k__BackingField: 2
+    <AppearType>k__BackingField: -1
+    <Weight>k__BackingField: 12
   - <Icon>k__BackingField: {fileID: 21300000, guid: 78f7a438f8b28914a8481f7c499822c1,
       type: 3}
     <Id>k__BackingField: chest_small
@@ -61,3 +67,147 @@ MonoBehaviour:
     <Amount>k__BackingField: 1
     <AppearType>k__BackingField: 4
     <Weight>k__BackingField: 6
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 9ed99ea9c752fd043ba6d63648ce1951,
+      type: 3}
+    <Id>k__BackingField: mle_bayonet_easter_time
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 4
+    <Weight>k__BackingField: 4
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 0653b92c0be482f4aa1eb5b2f4d216bb,
+      type: 3}
+    <Id>k__BackingField: baseball_cap_easter
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 4
+    <Weight>k__BackingField: 4
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+      type: 3}
+    <Id>k__BackingField: mle_bayonet_summer_vice
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 4
+    <Weight>k__BackingField: 4
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+      type: 3}
+    <Id>k__BackingField: mle_bayonet_summer_vice
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 4
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+      type: 3}
+    <Id>k__BackingField: cons_grenade_m67
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 14
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+      type: 3}
+    <Id>k__BackingField: cons_grenade_m67
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 14
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+      type: 3}
+    <Id>k__BackingField: cons_healthshot_2_neurostim
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 14
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+      type: 3}
+    <Id>k__BackingField: cons_healthshot_2_regenerator
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 14
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+      type: 3}
+    <Id>k__BackingField: t_cons_molotov
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 14
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+      type: 3}
+    <Id>k__BackingField: tier1_shotgun
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 322e21dee45cdc244a9e8552da9c0edd,
+      type: 3}
+    <Id>k__BackingField: tier2_mle
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 7ad0148ba6a899f41ad00ea9856a1713,
+      type: 3}
+    <Id>k__BackingField: tier2_rifle
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 3a22f5bdf87c94a41aecd59e57cec9a1,
+      type: 3}
+    <Id>k__BackingField: tier3_shotgun
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 3a22f5bdf87c94a41aecd59e57cec9a1,
+      type: 3}
+    <Id>k__BackingField: tier3_smg
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 3a22f5bdf87c94a41aecd59e57cec9a1,
+      type: 3}
+    <Id>k__BackingField: tier3_sniper
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 6
+    <Weight>k__BackingField: 7
+  - <Icon>k__BackingField: {fileID: 21300000, guid: f1fd438e1156a5e4585f713b4ca4976e,
+      type: 3}
+    <Id>k__BackingField: Armor_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 8fd76c0d9c114f842b7c150653ab4df0,
+      type: 3}
+    <Id>k__BackingField: Knife_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: c8e8545a3fc1b2741b308583c915388e,
+      type: 3}
+    <Id>k__BackingField: Pistol_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: c8e8545a3fc1b2741b308583c915388e,
+      type: 3}
+    <Id>k__BackingField: Rifle_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: a226517f1d2a7914cbd08c2ff35f433a,
+      type: 3}
+    <Id>k__BackingField: Shotgun_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 0a76ddfafd5de184da2a5d606a689eb4,
+      type: 3}
+    <Id>k__BackingField: SMG_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 15a7e7a9620771242aab104cdec2c647,
+      type: 3}
+    <Id>k__BackingField: Sniper_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 9575de1522b50ac498cb66e1132de16c,
+      type: 3}
+    <Id>k__BackingField: Submachine_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 519e0c99a8293da49ad075e0ab41b71a,
+      type: 3}
+    <Id>k__BackingField: Vest_Points
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: 3
+    <Weight>k__BackingField: 13
