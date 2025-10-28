@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 using Zenject;
 
@@ -23,10 +24,10 @@ namespace WheelOfFortuneSystem
             _controller.Tick();
         }
         
-        public void DoSpin(Vector3 targetTargetRotation)
+        public void DoSpin(Vector3 targetTargetRotation, Action onComplete = null)
         {
             Assert.IsNotNull(_controller, "[WheelOfFortune] WheelOfFortuneController is null!");
-            _controller.DoSpin(targetTargetRotation);
+            _controller.DoSpin(targetTargetRotation, ()=> onComplete?.Invoke());
         }
         
         public class Factory : PlaceholderFactory<WheelOfFortune> { }

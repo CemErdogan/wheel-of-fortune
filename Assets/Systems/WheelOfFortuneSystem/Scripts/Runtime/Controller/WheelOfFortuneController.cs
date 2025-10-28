@@ -1,6 +1,8 @@
-﻿using StateMachineSystem;
+﻿using System;
+using StateMachineSystem;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace WheelOfFortuneSystem
 {
@@ -38,11 +40,12 @@ namespace WheelOfFortuneSystem
             StateMachine.Tick();
         }
 
-        public void DoSpin(Vector3 targetRot)
+        public void DoSpin(Vector3 targetRot, Action onComplete = null)
         {
             var duration = Random.Range(_config.SpinDuration.x, _config.SpinDuration.y);
             View.PlaySpinAnimation(targetRot, duration, _config.SpinEase, ()=>
             {
+                onComplete?.Invoke();
                 SpinButton.SetInteractable(true);
             });
         }

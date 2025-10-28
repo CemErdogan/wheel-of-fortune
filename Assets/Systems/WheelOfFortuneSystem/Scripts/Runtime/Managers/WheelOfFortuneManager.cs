@@ -38,8 +38,16 @@ namespace WheelOfFortuneSystem
         private void SpinStartedCallback(OnSpinStartedSignal signal)
         {
             var target = wheelItemManager.GetRandomRotationTarget();
-            Debug.Log($"[WheelOfFortuneManager] Target: {target.Item.name}");
-            _wheelOfFortune.DoSpin(target.TargetRotation);
+            var item = target.Item;
+            var res = item.IsDeadly();
+            _wheelOfFortune.DoSpin(target.TargetRotation, () =>
+            {
+                if (res)
+                {
+                    _signalBus.Fire<OnSpinDeadSignal>();
+                }
+            });
+            Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, res:{item.IsDeadly()}", item);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace WheelOfFortuneSystem
             Model.Amount = data.Amount * multiplier;
             Model.Weight = data.Weight;
             Model.Id = data.Id;
+            Model.IsDeadly = data.IsDeadly;
             View.Prepare(Model.Amount, data.Icon);
         }
     }

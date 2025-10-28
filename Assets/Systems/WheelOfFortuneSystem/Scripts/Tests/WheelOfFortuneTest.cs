@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using Zenject;
 using NSubstitute;
@@ -104,7 +105,7 @@ namespace WheelOfFortuneSystem.Tests
 
             public void Tick() { }
             
-            public void DoSpin(Vector3 targetRot) { }
+            public void DoSpin(Vector3 targetRot, Action onCompolete = null) { }
         }
     }
 }

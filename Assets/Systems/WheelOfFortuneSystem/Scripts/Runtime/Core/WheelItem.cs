@@ -22,6 +22,11 @@ namespace WheelOfFortuneSystem
             return _model.Weight;
         }
         
+        public bool IsDeadly()
+        {
+            return _model.IsDeadly;
+        }
+        
         public class Factory : PlaceholderFactory<WheelItem> { }
     }
 }

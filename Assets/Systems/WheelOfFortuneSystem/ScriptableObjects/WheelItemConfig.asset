@@ -211,3 +211,9 @@ MonoBehaviour:
     <Amount>k__BackingField: 1
     <AppearType>k__BackingField: 3
     <Weight>k__BackingField: 13
+  - <Icon>k__BackingField: {fileID: 21300000, guid: c0db9dbaf0c659440bd1c96b001a6341,
+      type: 3}
+    <Id>k__BackingField: bomb
+    <Amount>k__BackingField: 1
+    <AppearType>k__BackingField: -1
+    <Weight>k__BackingField: 12
