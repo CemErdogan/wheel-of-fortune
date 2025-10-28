@@ -12,7 +12,8 @@ namespace WheelOfFortuneSystem
         [Inject] private readonly WheelItem.Factory _itemFactory;
 
         private float _angle;
-        private readonly List<WheelItemWeightData> _items = new();
+        private readonly List<WheelItem> _items = new();
+        private readonly List<float> _weights = new();
         
         public void Initialize()
         {
@@ -29,21 +30,12 @@ namespace WheelOfFortuneSystem
             Assert.IsNotNull(_items, "WheelItemManager: Items list is null!");
             Assert.IsTrue(_items.Count > 0, "WheelItemManager: Items list is empty!");
             
-            var items = new List<WheelItem>();
-            var weights = new List<float>();
-
-            foreach (var data in _items)
-            {
-                items.Add(data.Item);
-                weights.Add(data.Weight);
-            }
-
-            var item = items.GetRandomWithLuck(weights);
+            var item = _items.GetRandomWithLuck(_weights);
             Assert.IsNotNull(item, "WheelItemManager: Selected random item is null!");
             
-            var index = items.IndexOf(item);
+            var index = _items.IndexOf(item);
             var angle = -(_angle * index) ;
-            var targetRotation = Vector3.back * (angle + 2 * 360) ;
+            var targetRotation = Vector3.back * (angle + 360);
             
             return new RotationTargetData(item, targetRotation);
         }
@@ -73,7 +65,8 @@ namespace WheelOfFortuneSystem
             {
                 var item = _itemFactory.Create();
                 item.Prepare(parent, i * _angle, multiplier, baseType);
-                _items.Add(new WheelItemWeightData(item, item.GetWeight()));
+                _items.Add(item);
+                _weights.Add(item.GetWeight());
             }
         }
     }

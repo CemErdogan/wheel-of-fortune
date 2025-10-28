@@ -1,4 +1,5 @@
 ﻿using System;
+using PopupSystem;
 using UnityEngine;
 using Zenject;
 
@@ -44,10 +45,10 @@ namespace WheelOfFortuneSystem
             {
                 if (res)
                 {
-                    _signalBus.Fire<OnSpinDeadSignal>();
+                    _signalBus.Fire(new OnRequestPopupShowSignal("SpinDead"));
                 }
             });
-            Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, res:{item.IsDeadly()}", item);
+            Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, res:{res}", item);
         }
     }
 }

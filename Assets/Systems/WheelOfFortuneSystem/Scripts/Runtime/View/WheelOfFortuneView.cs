@@ -15,7 +15,6 @@ namespace WheelOfFortuneSystem
         public void PlaySpinAnimation(Vector3 targetRot, float duration, Ease ease, Action onComplete = null)
         {
             rotateTransform.DORotate(targetRot, duration, RotateMode.FastBeyond360)
-                .SetRelative()
                 .SetEase(ease)
                 .OnComplete(() => onComplete?.Invoke())
                 .SetLink(gameObject);

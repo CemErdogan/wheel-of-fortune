@@ -1,12 +1,9 @@
 {
-    "name": "WheelOfFortuneSystem.Runtime",
+    "name": "PopupSystem.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:6c4b1ceea98220e4bb7f280e886b1088",
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:e5cfcd82e872476489551c5faa39604a",
-        "GUID:0bf99fb5a18d0ec4a8cdc82477b1ee39"
+        "GUID:6c4b1ceea98220e4bb7f280e886b1088"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
