@@ -8,13 +8,15 @@ namespace WheelOfFortuneSystem
         [Header("Project References")]
         [SerializeField] private WheelOfFortune wheelOfFortunePrefab;
         [SerializeField] private WheelItem wheelItemPrefab;
+        [SerializeField] private ZoneArea zoneAreaPrefab;
         [Space, Header("Scene References")]
         [SerializeField] private Transform canvasTransform;
         
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<WheelOfFortuneManager>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<WheelItemManager>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<WheelOfFortuneManager>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<WheelItemManager>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ZoneAreaManager>().FromNew().AsSingle().NonLazy();
             
             Container.BindFactory<WheelOfFortune, WheelOfFortune.Factory>()
                 .FromComponentInNewPrefab(wheelOfFortunePrefab)
@@ -22,6 +24,10 @@ namespace WheelOfFortuneSystem
                 .AsSingle();
             Container.BindFactory<WheelItem, WheelItem.Factory>()
                 .FromComponentInNewPrefab(wheelItemPrefab)
+                .UnderTransform(canvasTransform)
+                .AsSingle();
+            Container.BindFactory<ZoneArea, ZoneArea.Factory>()
+                .FromComponentInNewPrefab(zoneAreaPrefab)
                 .UnderTransform(canvasTransform)
                 .AsSingle();
             
@@ -39,6 +45,11 @@ namespace WheelOfFortuneSystem
             if (canvasTransform == null)
             {
                 Debug.LogWarning("Canvas Transform is not assigned in the WheelOfFortuneSceneInstaller.");
+            }
+
+            if (wheelOfFortunePrefab == null)
+            {
+                Debug.LogWarning("Wheel Of Fortune Prefab is not assigned in the WheelOfFortuneSceneInstaller.");
             }
         }
     }

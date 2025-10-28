@@ -21,6 +21,7 @@ namespace PopupSystem.Popups
         
         private void ClickCallback()
         {
+            button.interactable = false;
             popup.Disappear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
