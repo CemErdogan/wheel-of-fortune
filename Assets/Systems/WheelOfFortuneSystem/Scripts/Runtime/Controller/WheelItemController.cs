@@ -10,6 +10,8 @@ namespace WheelOfFortuneSystem
         public void Prepare(WheelItemData data, int multiplier)
         {
             Model.Amount = data.Amount * multiplier;
+            Model.Weight = data.Weight;
+            Model.Id = data.Id;
             View.Prepare(Model.Amount, data.Icon);
         }
     }
