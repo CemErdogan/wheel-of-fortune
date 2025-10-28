@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f96fef922641488d43dcb20d6aac9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneAreaViewObject: {fileID: 5484331943430216352}
 --- !u!114 &8184046105705122203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712fc5bfd69e415faba36348ab8696c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollRect: {fileID: 5484331943430216354}
+  viewportTransform: {fileID: 5484331942710510415}
+  contentPanelTransform: {fileID: 5484331942598916496}
+  horizontalLayoutGroup: {fileID: 5484331942598916497}
