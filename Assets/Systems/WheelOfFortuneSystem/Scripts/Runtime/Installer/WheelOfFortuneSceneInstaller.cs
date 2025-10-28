@@ -26,6 +26,7 @@ namespace WheelOfFortuneSystem
                 .AsSingle();
             
             Container.DeclareSignal<OnCreateItemsSignal>();
+            Container.DeclareSignal<OnSpinStartedSignal>();
         }
         
         private void OnValidate()
@@ -57,4 +58,6 @@ namespace WheelOfFortuneSystem
             BaseType = baseType;
         }
     }
+
+    public struct OnSpinStartedSignal { }
 }

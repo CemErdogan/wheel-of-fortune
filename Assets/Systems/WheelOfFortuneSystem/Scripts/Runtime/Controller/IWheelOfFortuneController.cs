@@ -1,4 +1,5 @@
 ﻿using StateMachineSystem;
+using UnityEngine;
 
 namespace WheelOfFortuneSystem
 {
@@ -12,5 +13,6 @@ namespace WheelOfFortuneSystem
         void Init();
         void Deinit();
         void Tick();
+        void DoSpin(Vector3 targetRot);
     }
 }

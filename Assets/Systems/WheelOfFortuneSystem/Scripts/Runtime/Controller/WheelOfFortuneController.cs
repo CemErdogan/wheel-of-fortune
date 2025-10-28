@@ -11,7 +11,6 @@ namespace WheelOfFortuneSystem
         [Inject] public StateMachine StateMachine { get; }
         [Inject] public ISpinButton SpinButton { get; }
         [Inject(Id = WheelOfFortuneInstaller.WheelItemParentId)] private readonly Transform _itemParent;
-        [Inject] private readonly WheelItemManager _itemManager;
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly WheelOfFortuneConfig _config;
         
@@ -39,6 +38,15 @@ namespace WheelOfFortuneSystem
             StateMachine.Tick();
         }
 
+        public void DoSpin(Vector3 targetRot)
+        {
+            var duration = Random.Range(_config.SpinDuration.x, _config.SpinDuration.y);
+            View.PlaySpinAnimation(targetRot, duration, _config.SpinEase, ()=>
+            {
+                SpinButton.SetInteractable(true);
+            });
+        }
+
         private void SetCallbacks(bool value)
         {
             if (value)
@@ -64,14 +72,8 @@ namespace WheelOfFortuneSystem
 
         private void SpinButtonClickedCallback()
         {
+            _signalBus.Fire<OnSpinStartedSignal>();
             SpinButton.SetInteractable(false);
-            var target = _itemManager.GetRandomRotationTarget();
-            Debug.Log("Spinning to item: " + target.Item.gameObject.name);
-            var duration = Random.Range(_config.SpinDuration.x, _config.SpinDuration.y);
-            View.PlaySpinAnimation(target.TargetRotation, duration, _config.SpinEase, ()=>
-            {
-                SpinButton.SetInteractable(true);
-            });
         }
     }
 }

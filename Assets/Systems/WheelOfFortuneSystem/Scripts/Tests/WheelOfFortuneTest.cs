@@ -103,6 +103,8 @@ namespace WheelOfFortuneSystem.Tests
             public void Deinit() { }
 
             public void Tick() { }
+            
+            public void DoSpin(Vector3 targetRot) { }
         }
     }
 }
