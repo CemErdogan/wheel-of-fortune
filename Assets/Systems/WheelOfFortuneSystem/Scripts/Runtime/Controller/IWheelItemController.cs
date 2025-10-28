@@ -3,7 +3,7 @@
     public interface IWheelItemController
     {
         IWheelItemView View { get; }
-        WheelItemModel Model { get; }
+        IWheelItemModel Model { get; }
         
         void Prepare(WheelItemData data, int multiplier);
     }

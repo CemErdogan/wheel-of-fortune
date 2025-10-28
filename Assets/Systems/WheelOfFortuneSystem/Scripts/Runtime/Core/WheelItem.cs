@@ -1,5 +1,4 @@
-﻿using CoreSystem;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace WheelOfFortuneSystem
