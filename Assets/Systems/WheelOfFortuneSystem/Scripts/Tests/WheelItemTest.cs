@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace WheelOfFortuneSystem.Tests
 {
-    public class WheelItemModelTest : ZenjectUnitTestFixture
+    public class WheelItemTest : ZenjectUnitTestFixture
     {
         private IWheelItemModel _model;
         private IWheelItemView _view;
