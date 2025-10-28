@@ -14,7 +14,7 @@ namespace WheelOfFortuneSystem
         {
             Container.Bind<WheelItemConfig>().FromInstance(wheelItemConfig).AsSingle();
             
-            Container.Bind<WheelItemModel>().FromNew().AsSingle();
+            Container.Bind<IWheelItemModel>().To<WheelItemModel>().FromNew().AsSingle();
             Container.Bind<IWheelItemView>().To<WheelItemView>().FromComponentOn(wheelItemViewObject).AsSingle();
             Container.Bind<IWheelItemController>().To<WheelItemController>().AsSingle();
         }
