@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -10,12 +11,16 @@ namespace WheelOfFortuneSystem
         
         public void Prepare(RectTransform parent, int index)
         {
+            Assert.IsNotNull(_controller, "ZoneItem Controller is null!");
+            
             transform.SetParent(parent);
             _controller.Prepare(index);
         }
         
         public void SetIndex(int newIndexForRightMost)
         {
+            Assert.IsNotNull(_view, "ZoneItem View is null!");
+            
             _view.SetIndex(newIndexForRightMost);
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Assertions;
 using Zenject;
 
 namespace WheelOfFortuneSystem
@@ -23,17 +24,21 @@ namespace WheelOfFortuneSystem
         
         public void SetZoneItems(ZoneItem[] zoneItems)
         {
+            Assert.IsNotNull(_zoneArea, "ZoneAreaManager: ZoneArea is null!");
+            
             _zoneArea.SetZoneItems(zoneItems);
             _zoneArea.SetZoneIndex(0);
         }
 
         public float GetViewPortWidth()
         {
+            Assert.IsNotNull(_zoneArea, "ZoneAreaManager: ZoneArea is null!");
             return _zoneArea.GetViewPortWidth();
         }
 
         public float GetItemSpacing()
-        {
+        {            
+            Assert.IsNotNull(_zoneArea, "ZoneAreaManager: ZoneArea is null!");
             return _zoneArea.GetItemSpacing();
         }
         
