@@ -1,4 +1,6 @@
-﻿namespace WheelOfFortuneSystem
+﻿using UnityEngine;
+
+namespace WheelOfFortuneSystem
 {
     public interface IWheelItemModel
     {
@@ -6,5 +8,6 @@
         float Weight { get; set; }
         string Id { get; set; }
         bool IsDeadly { get; set; }
+        Sprite Icon { get; set; }
     }
 }

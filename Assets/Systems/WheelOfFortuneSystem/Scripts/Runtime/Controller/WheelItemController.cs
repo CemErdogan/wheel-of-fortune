@@ -13,6 +13,7 @@ namespace WheelOfFortuneSystem
             Model.Weight = data.Weight;
             Model.Id = data.Id;
             Model.IsDeadly = data.IsDeadly;
+            Model.Icon = data.Icon;
             View.Prepare(Model.Amount, data.Icon);
         }
     }

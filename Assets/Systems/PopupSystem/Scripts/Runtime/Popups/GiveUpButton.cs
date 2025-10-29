@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace PopupSystem.Popups
+namespace PopupSystem
 {
     public class GiveUpButton : MonoBehaviour
     {
-        [SerializeField, ValidateNotNull] private Popup popup;
+        [SerializeField] private Popup popup;
         [SerializeField, ValidateNotNull] private Button button;
 
         private void OnEnable()

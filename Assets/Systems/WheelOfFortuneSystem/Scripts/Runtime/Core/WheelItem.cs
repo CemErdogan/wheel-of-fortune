@@ -27,6 +27,21 @@ namespace WheelOfFortuneSystem
             return _model.IsDeadly;
         }
         
+        public string GetId()
+        {
+            return _model.Id;
+        }
+        
+        public int GetAmount()
+        {
+            return _model.Amount;
+        }
+
+        public Sprite GetIcon()
+        {
+            return _model.Icon;
+        }
+        
         public class Factory : PlaceholderFactory<WheelItem> { }
     }
 }

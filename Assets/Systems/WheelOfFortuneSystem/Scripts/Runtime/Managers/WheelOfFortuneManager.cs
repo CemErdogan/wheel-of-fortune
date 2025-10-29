@@ -43,12 +43,11 @@ namespace WheelOfFortuneSystem
             var res = item.IsDeadly();
             _wheelOfFortune.DoSpin(target.TargetRotation, () =>
             {
-                if (res)
-                {
-                    _signalBus.Fire(new OnRequestPopupShowSignal("SpinDead"));
-                }
+                _signalBus.Fire(res
+                    ? new OnRequestPopupShowSignal("SpinDead")
+                    : new OnRequestPopupShowSignal("SpinReward", new SpinRewardPopupContext(item.GetAmount(), item.GetId(), item.GetIcon())));
             });
-            Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, res:{res}", item);
+            Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, is deadly:{res}", item);
         }
     }
 }

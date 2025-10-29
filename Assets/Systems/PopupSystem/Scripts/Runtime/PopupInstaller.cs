@@ -31,10 +31,12 @@ namespace PopupSystem
     public struct OnRequestPopupShowSignal
     {
         public readonly string PopupId;
+        public readonly IPopupContext PopupContext;
 
-        public OnRequestPopupShowSignal(string popupId)
+        public OnRequestPopupShowSignal(string popupId, IPopupContext popupContext = null)
         {
             PopupId = popupId;
+            PopupContext = popupContext;
         }
     }
 }

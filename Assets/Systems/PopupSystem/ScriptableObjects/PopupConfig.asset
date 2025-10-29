@@ -16,3 +16,6 @@ MonoBehaviour:
   - <Id>k__BackingField: SpinDead
     <PopupPrefab>k__BackingField: {fileID: 7424973378851461663, guid: c5ae956624783404f81b69af63a7770b,
       type: 3}
+  - <Id>k__BackingField: SpinReward
+    <PopupPrefab>k__BackingField: {fileID: 1336558426328692688, guid: 055a0fc66bdd55b42bfe674802a89751,
+      type: 3}

@@ -40,6 +40,7 @@ namespace PopupSystem
         {
             if (_popups.TryGetValue(signal.PopupId, out var popup))
             {
+                popup.Prepare(signal.PopupContext);
                 popup.Appear();
                 return;
             }
@@ -47,6 +48,7 @@ namespace PopupSystem
             var popupPrefab = _popupConfig.Get(signal.PopupId);
             var popupInstance = _diContainer.InstantiatePrefabForComponent<Popup>(popupPrefab, _popupCanvas.transform);
             _popups.Add(signal.PopupId, popupInstance);
+            popupInstance.Prepare(signal.PopupContext);
             popupInstance.Appear();
         }
     }
