@@ -1,4 +1,6 @@
-﻿namespace WheelOfFortuneSystem
+﻿using UnityEngine;
+
+namespace WheelOfFortuneSystem
 {
     public interface IZoneAreaController
     {
@@ -6,6 +8,6 @@
         IZoneAreaView View { get; }
         
         void Init();
-        void Deinit();
+        void SetZoneIndex(int currentZoneIndex, RectTransform target);
     }
 }

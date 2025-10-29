@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using UnityEngine;
+using Zenject;
 
 namespace WheelOfFortuneSystem
 {
@@ -17,6 +18,12 @@ namespace WheelOfFortuneSystem
         public void Deinit()
         {
             
+        }
+
+        public void SetZoneIndex(int currentZoneIndex, RectTransform target)
+        {
+            Model.CurrentZoneIndex = currentZoneIndex;
+            View.SnapTo(target);
         }
     }
 }

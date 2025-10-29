@@ -46,6 +46,7 @@ namespace WheelOfFortuneSystem
                 _signalBus.Fire(res
                     ? new OnRequestPopupShowSignal("SpinDead")
                     : new OnRequestPopupShowSignal("SpinReward", new SpinRewardPopupContext(item.GetAmount(), item.GetId(), item.GetIcon())));
+                _signalBus.Fire<RequestNextZoneSignal>();
             });
             Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, is deadly:{res}", item);
         }

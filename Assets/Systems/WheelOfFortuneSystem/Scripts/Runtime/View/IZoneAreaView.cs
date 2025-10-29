@@ -7,5 +7,6 @@ namespace WheelOfFortuneSystem
         RectTransform GetItemParent();
         float GetViewPortWidth();
         float GetItemSpacing();
+        void SnapTo(RectTransform target);
     }
 }
