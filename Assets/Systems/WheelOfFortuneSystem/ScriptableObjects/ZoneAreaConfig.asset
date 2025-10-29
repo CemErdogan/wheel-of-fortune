@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ZoneAreaConfig
   m_EditorClassIdentifier: 
   <NormalZoneBaseType>k__BackingField: 1
-  <NormalZoneColor>k__BackingField: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  <NormalZoneColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
   <SpecialZoneTypesData>k__BackingField:
   - <Id>k__BackingField: super
     <RepeatCount>k__BackingField: 30
     <BaseType>k__BackingField: 4
-    <Color>k__BackingField: {r: 0.4224813, g: 0.8867924, b: 0.4747215, a: 1}
+    <Color>k__BackingField: {r: 0.42352945, g: 0.76329684, b: 0.8862745, a: 1}
   - <Id>k__BackingField: safe
     <RepeatCount>k__BackingField: 5
     <BaseType>k__BackingField: 2
-    <Color>k__BackingField: {r: 0.38487893, g: 0.64367217, b: 0.8773585, a: 1}
+    <Color>k__BackingField: {r: 0.42352942, g: 0.8862745, b: 0.4745098, a: 1}
