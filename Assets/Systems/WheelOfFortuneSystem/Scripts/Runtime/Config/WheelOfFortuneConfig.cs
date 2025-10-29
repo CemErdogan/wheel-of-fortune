@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace WheelOfFortuneSystem
@@ -11,16 +12,16 @@ namespace WheelOfFortuneSystem
         [field:SerializeField] public int WheelItemSize { get; private set; } = 8;
         [field:SerializeField] public WheelOfFortuneBaseData[] BaseData { get; private set; }
 
-        public Sprite GetBaseSprite(WheelOfFortuneBaseType baseType)
+        public (Sprite BaseImage, Sprite IndicatorImage, Color textColor) GetBaseData(WheelOfFortuneBaseType baseType)
         {
             foreach (var baseData in BaseData)
             {
                 if (baseData.BaseType == baseType)
-                    return baseData.Image;
+                    return new ValueTuple<Sprite, Sprite, Color>(baseData.BaseImage, baseData.IndicatorImage, baseData.TextColor);
             }
 
             Debug.LogError($"[WheelOfFortuneConfig] Base sprite for type {baseType} not found. Returning null.");
-            return null;
+            return (null, null, Color.white);
         }
 
         public int GetBaseMultiplier(WheelOfFortuneBaseType baseType)

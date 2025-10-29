@@ -8,8 +8,9 @@ namespace WheelOfFortuneSystem
     {
         void PlaySpinAnimation(Vector3 targetRot, float duration, Ease ease, Action onComplete = null);
         void SetBaseImage(Sprite newImage);
-        void SetHeaderText(string text);
-        void SetInfoText(string text);
+        void SetIndicatorImage(Sprite dataIndicatorImage);
+        void SetHeaderText(string text, Color color);
+        void SetInfoText(string text, Color color);
         Transform GetItemParent();
     }
 }

@@ -19,9 +19,7 @@ namespace WheelOfFortuneSystem
         {
             Model.BaseType = WheelOfFortuneBaseType.Bronze;
             var multiplier = _config.GetBaseMultiplier(Model.BaseType);
-            View.SetBaseImage(_config.GetBaseSprite(Model.BaseType));
-            View.SetHeaderText($"{Model.BaseType} SPIN");
-            View.SetInfoText($"Up To x{multiplier} Rewards");
+            RePrepare(Model.BaseType);
             
             SetCallbacks(true);
             PrepareFsm();
@@ -43,9 +41,11 @@ namespace WheelOfFortuneSystem
         {
             Model.BaseType = baseType;
             var multiplier = _config.GetBaseMultiplier(Model.BaseType);
-            View.SetBaseImage(_config.GetBaseSprite(Model.BaseType));
-            View.SetHeaderText($"{Model.BaseType} SPIN");
-            View.SetInfoText($"Up To x{multiplier} Rewards");
+            var data = _config.GetBaseData(Model.BaseType);
+            View.SetBaseImage(data.BaseImage);
+            View.SetIndicatorImage(data.IndicatorImage);
+            View.SetHeaderText($"{Model.BaseType.ToString().ToUpper()} SPIN", data.textColor);
+            View.SetInfoText($"Up To x{multiplier} Rewards", data.textColor);
         }
 
         public void DoSpin(Vector3 targetRot, Action onComplete = null)

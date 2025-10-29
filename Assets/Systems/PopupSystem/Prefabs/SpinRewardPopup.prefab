@@ -526,6 +526,7 @@ MonoBehaviour:
   iconImage: {fileID: 2958158512897662752}
   headerText: {fileID: 7651930084767984903}
   infoText: {fileID: 2376854337391633286}
+  autoCloseDelay: 1
 --- !u!1 &7648786446878796445
 GameObject:
   m_ObjectHideFlags: 0

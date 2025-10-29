@@ -49,7 +49,7 @@ namespace WheelOfFortuneSystem.Tests
         public void Initialize()
         {
             _controller.Init();
-            _view.Received(1).SetHeaderText(Arg.Any<string>());
+            _view.Received(1).SetHeaderText(Arg.Any<string>(), Arg.Any<Color>());
         }
 
         [Test]
@@ -61,15 +61,15 @@ namespace WheelOfFortuneSystem.Tests
         [Test]
         public void Should_Set_Header_Text()
         {
-            _view.SetHeaderText("Spin Ready");
-            _view.Received(1).SetHeaderText("Spin Ready");
+            _view.SetHeaderText("Spin Ready", Color.white);
+            _view.Received(1).SetHeaderText("Spin Ready", Color.white);
         }
 
         [Test]
         public void Should_Set_Info_Text()
         {
-            _view.SetInfoText("Spinning...");
-            _view.Received(1).SetInfoText("Spinning...");
+            _view.SetInfoText("Spinning...", Color.yellow);
+            _view.Received(1).SetInfoText("Spinning...", Color.yellow);
         }
 
         [Test]
@@ -98,7 +98,7 @@ namespace WheelOfFortuneSystem.Tests
 
             public void Init()
             {
-                View.SetHeaderText("Initialized");
+                View.SetHeaderText("Initialized", Color.green);
             }
 
             public void Deinit() { }

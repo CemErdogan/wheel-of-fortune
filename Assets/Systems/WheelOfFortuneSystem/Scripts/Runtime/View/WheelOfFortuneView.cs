@@ -10,7 +10,7 @@ namespace WheelOfFortuneSystem
     public class WheelOfFortuneView : MonoBehaviour, IWheelOfFortuneView
     {
         [SerializeField, ValidateNotNull] private Transform rotateTransform, itemParentTransform;
-        [SerializeField, ValidateNotNull] private Image baseImage;
+        [SerializeField, ValidateNotNull] private Image baseImage, indicatorImage;
         [SerializeField, ValidateNotNull] private TextMeshProUGUI headerText, infoText;
         
         public void PlaySpinAnimation(Vector3 targetRot, float duration, Ease ease, Action onComplete = null)
@@ -26,14 +26,21 @@ namespace WheelOfFortuneSystem
             baseImage.sprite = newImage;
         }
 
-        public void SetHeaderText(string text)
+        public void SetIndicatorImage(Sprite dataIndicatorImage)
         {
-            headerText.SetText(text);
+            indicatorImage.sprite = dataIndicatorImage;
         }
 
-        public void SetInfoText(string text)
+        public void SetHeaderText(string text, Color color)
+        {
+            headerText.SetText(text);
+            headerText.color = color;
+        }
+
+        public void SetInfoText(string text, Color color)
         {
             infoText.SetText(text);
+            infoText.color = color;
         }
 
         public Transform GetItemParent()

@@ -575,8 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0516d1cca73f49c5a7825dcbd86cfd64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelOfFortuneConfig: {fileID: 11400000, guid: af778b234c209b34290789985ad7c8f9,
-    type: 2}
   spinButtonObject: {fileID: 1096572058364104997}
   wheelOfFortuneObject: {fileID: 5128870818411029518}
   wheelOfFortuneViewObject: {fileID: 5128870818411029518}
@@ -608,6 +606,7 @@ MonoBehaviour:
   rotateTransform: {fileID: 5128870817580454733}
   itemParentTransform: {fileID: 5128870817580454733}
   baseImage: {fileID: 5128870817580454730}
+  indicatorImage: {fileID: 5128870818108479717}
   headerText: {fileID: 5128870816859213620}
   infoText: {fileID: 5128870818579154562}
 --- !u!1 &5128870818579154564
