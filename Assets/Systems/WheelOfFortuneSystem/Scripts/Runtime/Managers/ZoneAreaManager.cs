@@ -8,6 +8,7 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly ZoneArea.Factory _zoneAreaFactory;
         [Inject] private readonly SignalBus _signalBus;
+        [Inject] private readonly ZoneAreaConfig _zoneAreaConfig;
 
         private ZoneArea _zoneArea;
         
@@ -58,6 +59,7 @@ namespace WheelOfFortuneSystem
         {
             var next = _zoneArea.GetCurrentZon() + 1;
             _zoneArea.SetZoneIndex(next);
+            _signalBus.Fire(new RequestNextWheelSpinSignal(_zoneAreaConfig.GetNextZoneData(next)));
         }
     }
 }

@@ -50,6 +50,7 @@ namespace WheelOfFortuneSystem
             Container.DeclareSignal<OnSpinStartedSignal>();
             Container.DeclareSignal<OnCreateZoneItemsSignal>();
             Container.DeclareSignal<RequestNextZoneSignal>();
+            Container.DeclareSignal<RequestNextWheelSpinSignal>();
         }
         
         private void OnValidate()
@@ -85,5 +86,16 @@ namespace WheelOfFortuneSystem
     }
 
     public struct OnSpinStartedSignal { }
+    
     public struct RequestNextZoneSignal { }
+
+    public struct RequestNextWheelSpinSignal
+    {
+        public readonly NextZoneData NextZoneData;
+        
+        public RequestNextWheelSpinSignal(NextZoneData nextZoneData)
+        {
+            NextZoneData = nextZoneData;
+        }
+    }
 }

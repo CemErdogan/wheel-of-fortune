@@ -46,10 +46,12 @@ namespace WheelOfFortuneSystem
             if (value)
             {
                 _signalBus.Subscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
+                _signalBus.Subscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
             else
             {
                 _signalBus.Unsubscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
+                _signalBus.Unsubscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
         }
         
@@ -68,6 +70,11 @@ namespace WheelOfFortuneSystem
                 _items.Add(item);
                 _weights.Add(item.GetWeight());
             }
+        }
+        
+        private void RequestNextWheelSpinCallback(RequestNextWheelSpinSignal signal)
+        {
+            
         }
     }
 }

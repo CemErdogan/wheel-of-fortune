@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <NormalZoneBaseType>k__BackingField: 1
   <SpecialZoneTypesData>k__BackingField:
-  - <Id>k__BackingField: safe
-    <RepeatCount>k__BackingField: 5
-    <BaseType>k__BackingField: 2
   - <Id>k__BackingField: super
     <RepeatCount>k__BackingField: 30
     <BaseType>k__BackingField: 4
+  - <Id>k__BackingField: safe
+    <RepeatCount>k__BackingField: 5
+    <BaseType>k__BackingField: 2
