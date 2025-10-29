@@ -2,18 +2,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
-namespace PopupSystem
+namespace WheelOfFortuneSystem
 {
-    public class GiveUpButton : MonoBehaviour
+    public class LeaveButton : MonoBehaviour
     {
-        [SerializeField] private Popup popup;
         [SerializeField, ValidateNotNull] private Button button;
-
+        
         private void OnEnable()
         {
             button.onClick.AddListener(ClickCallback);
-            button.interactable = true;
         }
 
         private void OnDisable()
@@ -21,13 +20,17 @@ namespace PopupSystem
             button.onClick.RemoveListener(ClickCallback);
         }
         
+        public void SetInteractable(bool interactable)
+        {
+            button.interactable = interactable;
+        }
+        
         private void ClickCallback()
         {
             button.interactable = false;
-            popup.Disappear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
+        
         private void OnValidate()
         {
             if (button == null)
@@ -36,5 +39,7 @@ namespace PopupSystem
             }
             ValidationUtility.ValidateSerializedFields(this);
         }
+        
+        public class Factory : PlaceholderFactory<LeaveButton> { }
     }
 }

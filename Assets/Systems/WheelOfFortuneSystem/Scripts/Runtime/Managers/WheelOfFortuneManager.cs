@@ -9,15 +9,19 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly WheelItemManager _wheelItemManager;
         [Inject] private readonly WheelOfFortune.Factory _wheelFactory;
+        [Inject] private readonly LeaveButton.Factory _leaveButtonFactory;
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly WheelOfFortuneConfig _config;
         
         private WheelOfFortune _wheelOfFortune;
+        private LeaveButton _leaveButton;
         
         public void Initialize()
         {
             SetCallbacks(true);
             _wheelOfFortune = _wheelFactory.Create();
+            _leaveButton = _leaveButtonFactory.Create();
+            _leaveButton.SetInteractable(false);
         }
 
         public void Dispose()
@@ -61,6 +65,7 @@ namespace WheelOfFortuneSystem
             
             _wheelOfFortune.RePrepare(baseType);
             _wheelItemManager.RequestNextWheelSpin(baseType, multiplier, signal.NextZoneData.IsSpecialZone);
+            _leaveButton.SetInteractable(signal.NextZoneData.IsSpecialZone);
         }
     }
 }

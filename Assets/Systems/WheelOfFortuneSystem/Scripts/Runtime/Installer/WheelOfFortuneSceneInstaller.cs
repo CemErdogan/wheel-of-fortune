@@ -15,6 +15,7 @@ namespace WheelOfFortuneSystem
         [SerializeField, ValidateNotNull] private WheelItem wheelItemPrefab;
         [SerializeField, ValidateNotNull] private ZoneArea zoneAreaPrefab;
         [SerializeField, ValidateNotNull] private ZoneItem zoneItemPrefab;
+        [SerializeField, ValidateNotNull] private LeaveButton leaveButton;
         [Space, Header("Scene References")]
         [SerializeField, ValidateNotNull] private Transform canvasTransform;
         
@@ -43,6 +44,10 @@ namespace WheelOfFortuneSystem
                 .AsSingle();
             Container.BindFactory<ZoneItem, ZoneItem.Factory>()
                 .FromComponentInNewPrefab(zoneItemPrefab)
+                .UnderTransform(canvasTransform)
+                .AsSingle();
+            Container.BindFactory<LeaveButton, LeaveButton.Factory>()
+                .FromComponentInNewPrefab(leaveButton)
                 .UnderTransform(canvasTransform)
                 .AsSingle();
             

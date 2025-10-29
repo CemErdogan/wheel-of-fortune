@@ -507,6 +507,8 @@ MonoBehaviour:
     type: 3}
   zoneItemPrefab: {fileID: 7070800139209922815, guid: d9f3e5965b5803a4d9314b38d7529884,
     type: 3}
+  leaveButton: {fileID: 7912002546692658442, guid: 26c05f870cc11254abc59069c0840ca9,
+    type: 3}
   canvasTransform: {fileID: 1973335492}
 --- !u!1 &1864443751
 GameObject:
