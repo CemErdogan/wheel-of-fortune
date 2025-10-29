@@ -39,6 +39,15 @@ namespace WheelOfFortuneSystem
             StateMachine.Tick();
         }
 
+        public void RePrepare(WheelOfFortuneBaseType baseType)
+        {
+            Model.BaseType = baseType;
+            var multiplier = _config.GetBaseMultiplier(Model.BaseType);
+            View.SetBaseImage(_config.GetBaseSprite(Model.BaseType));
+            View.SetHeaderText($"{Model.BaseType} SPIN");
+            View.SetInfoText($"Up To x{multiplier} Rewards");
+        }
+
         public void DoSpin(Vector3 targetRot, Action onComplete = null)
         {
             var duration = Random.Range(_config.SpinDuration.x, _config.SpinDuration.y);

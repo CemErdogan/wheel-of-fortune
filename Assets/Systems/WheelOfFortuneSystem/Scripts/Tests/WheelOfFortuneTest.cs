@@ -105,6 +105,8 @@ namespace WheelOfFortuneSystem.Tests
 
             public void Tick() { }
             
+            public void RePrepare(WheelOfFortuneBaseType baseType) { }
+
             public void DoSpin(Vector3 targetRot, Action onCompolete = null) { }
         }
     }

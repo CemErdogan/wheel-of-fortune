@@ -24,6 +24,12 @@ namespace WheelOfFortuneSystem
             _controller.Tick();
         }
         
+        public void RePrepare(WheelOfFortuneBaseType baseType)
+        {
+            Assert.IsNotNull(_controller, "[WheelOfFortune] WheelOfFortuneController is null!");
+            _controller.RePrepare(baseType);
+        }
+        
         public void DoSpin(Vector3 targetTargetRotation, Action onComplete = null)
         {
             Assert.IsNotNull(_controller, "[WheelOfFortune] WheelOfFortuneController is null!");

@@ -59,7 +59,7 @@ namespace WheelOfFortuneSystem
         {
             var next = _zoneArea.GetCurrentZon() + 1;
             _zoneArea.SetZoneIndex(next);
-            _signalBus.Fire(new RequestNextWheelSpinSignal(_zoneAreaConfig.GetNextZoneData(next)));
+            _signalBus.Fire(new RequestNextWheelSpinSignal(_zoneAreaConfig.GetNextZoneData(next + 1)));
         }
     }
 }

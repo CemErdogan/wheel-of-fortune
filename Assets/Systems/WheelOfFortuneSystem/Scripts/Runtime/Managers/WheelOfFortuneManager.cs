@@ -7,9 +7,10 @@ namespace WheelOfFortuneSystem
 {
     public class WheelOfFortuneManager : IInitializable, IDisposable
     {
-        [Inject] private readonly WheelItemManager wheelItemManager;
+        [Inject] private readonly WheelItemManager _wheelItemManager;
         [Inject] private readonly WheelOfFortune.Factory _wheelFactory;
         [Inject] private readonly SignalBus _signalBus;
+        [Inject] private readonly WheelOfFortuneConfig _config;
         
         private WheelOfFortune _wheelOfFortune;
         
@@ -29,16 +30,18 @@ namespace WheelOfFortuneSystem
             if (value)
             {
                _signalBus.Subscribe<OnSpinStartedSignal>(SpinStartedCallback);
+               _signalBus.Subscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
             else
             {
                 _signalBus.Unsubscribe<OnSpinStartedSignal>(SpinStartedCallback);
+                _signalBus.Unsubscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
         }
 
         private void SpinStartedCallback(OnSpinStartedSignal signal)
         {
-            var target = wheelItemManager.GetRandomRotationTarget();
+            var target = _wheelItemManager.GetRandomRotationTarget();
             var item = target.Item;
             var res = item.IsDeadly();
             _wheelOfFortune.DoSpin(target.TargetRotation, () =>
@@ -49,6 +52,15 @@ namespace WheelOfFortuneSystem
                 _signalBus.Fire<RequestNextZoneSignal>();
             });
             Debug.Log($"[WheelOfFortuneManager] Target: {item.name}, is deadly:{res}", item);
+        }
+
+        private void RequestNextWheelSpinCallback(RequestNextWheelSpinSignal signal)
+        {
+            var baseType = signal.NextZoneData.NextZoneType;
+            var multiplier = _config.GetBaseMultiplier(baseType);
+            
+            _wheelOfFortune.RePrepare(baseType);
+            _wheelItemManager.RequestNextWheelSpin(baseType, multiplier, signal.NextZoneData.IsSpecialZone);
         }
     }
 }

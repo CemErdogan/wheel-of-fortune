@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace WheelOfFortuneSystem
 {
@@ -7,20 +8,33 @@ namespace WheelOfFortuneSystem
     {
         [field:SerializeField] public WheelItemData[] WheelItemsData { get; private set; }
 
-        public WheelItemData GetRandomData(WheelOfFortuneBaseType baseType)
+        public WheelItemData GetRandomData(WheelOfFortuneBaseType baseType, List<WheelItemData> excludeItems = null, bool skipDeadly = false)
         {
-            var filteredItems = new System.Collections.Generic.List<WheelItemData>();
+            var filteredItems = new List<WheelItemData>();
+
             foreach (var item in WheelItemsData)
             {
-                if ((item.AppearType & baseType) != 0)
+                if ((item.AppearType & baseType) == 0)
                 {
-                    filteredItems.Add(item);
+                    continue;
                 }
+                
+                if (excludeItems != null && excludeItems.Contains(item))
+                {
+                    continue;
+                }
+
+                if (skipDeadly && item.IsDeadly)
+                {
+                    continue;
+                }
+
+                filteredItems.Add(item);
             }
 
             if (filteredItems.Count == 0)
             {
-                Debug.LogError($"[WheelItemConfig] No wheel items found for base type {baseType}. Returning default item.");
+                Debug.LogError($"[WheelItemConfig] No valid wheel items found for base type {baseType}. Returning default item.");
                 return new WheelItemData();
             }
 
@@ -32,7 +46,6 @@ namespace WheelOfFortuneSystem
 
             var randomValue = Random.Range(0, totalWeight);
             var cumulativeWeight = 0;
-
             foreach (var item in filteredItems)
             {
                 cumulativeWeight += item.Weight;

@@ -13,7 +13,7 @@ namespace WheelOfFortuneSystem
         {
             var match = FindSpecialZoneData(nextZoneIndex);
             var zoneType = match?.BaseType ?? NormalZoneBaseType;
-            return new NextZoneData(zoneType);
+            return new NextZoneData(zoneType, match != null);
         }
 
         public Color GetColorByIndex(int index)

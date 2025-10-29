@@ -102,16 +102,16 @@ MonoBehaviour:
     <Id>k__BackingField: mle_bayonet_summer_vice
     <Amount>k__BackingField: 1
     <IsDeadly>k__BackingField: 0
-    <AppearType>k__BackingField: 3
+    <AppearType>k__BackingField: 6
     <Weight>k__BackingField: 4
-  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 0ca2f1aa1b078a042ae33c5c472f3026,
       type: 3}
-    <Id>k__BackingField: cons_grenade_m67
+    <Id>k__BackingField: cons_grenade_m26
     <Amount>k__BackingField: 1
     <IsDeadly>k__BackingField: 0
     <AppearType>k__BackingField: 3
     <Weight>k__BackingField: 14
-  - <Icon>k__BackingField: {fileID: 21300000, guid: 5dbde06419199c94bb54bdfb6ac5be12,
+  - <Icon>k__BackingField: {fileID: 21300000, guid: 348c60fc3bee2894285fd25d53a03540,
       type: 3}
     <Id>k__BackingField: cons_grenade_m67
     <Amount>k__BackingField: 1
@@ -125,21 +125,21 @@ MonoBehaviour:
     <IsDeadly>k__BackingField: 0
     <AppearType>k__BackingField: 3
     <Weight>k__BackingField: 14
-  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+  - <Icon>k__BackingField: {fileID: 21300000, guid: ef80f10fea76786479861e8393a8fba8,
       type: 3}
     <Id>k__BackingField: cons_healthshot_2_regenerator
     <Amount>k__BackingField: 1
     <IsDeadly>k__BackingField: 0
     <AppearType>k__BackingField: 3
     <Weight>k__BackingField: 14
-  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+  - <Icon>k__BackingField: {fileID: 21300000, guid: cd029fd6c1bb4934ebd8f6191d050977,
       type: 3}
     <Id>k__BackingField: t_cons_molotov
     <Amount>k__BackingField: 1
     <IsDeadly>k__BackingField: 0
     <AppearType>k__BackingField: 3
     <Weight>k__BackingField: 14
-  - <Icon>k__BackingField: {fileID: 21300000, guid: 1f11b55241f53954eaeeac416cf562d6,
+  - <Icon>k__BackingField: {fileID: 21300000, guid: c66de0e0ce88d8a41b4597e52cae81ea,
       type: 3}
     <Id>k__BackingField: tier1_shotgun
     <Amount>k__BackingField: 1

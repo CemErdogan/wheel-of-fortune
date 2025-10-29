@@ -10,6 +10,7 @@ namespace WheelOfFortuneSystem
     {
         [Inject] private readonly SignalBus _signalBus;
         [Inject] private readonly WheelItem.Factory _itemFactory;
+        [Inject] private readonly WheelItemConfig _config;
 
         private float _angle;
         private readonly List<WheelItem> _items = new();
@@ -39,6 +40,21 @@ namespace WheelOfFortuneSystem
             
             return new RotationTargetData(item, targetRotation);
         }
+        
+        public void RequestNextWheelSpin(WheelOfFortuneBaseType baseType, int multiplier, bool skipDeadly)
+        {
+            var dataList = new List<WheelItemData>();
+            for (int i = 0; i < _items.Count; i++)
+            {
+                var data = _config.GetRandomData(baseType, dataList, skipDeadly);
+                dataList.Add(data);
+            }
+            
+            for (int i = 0; i < _items.Count; i++)
+            {
+                _items[i].RePrepare(multiplier, dataList[i]);
+            }
+        }
 
         
         private void SetCallbacks(bool value)
@@ -46,12 +62,10 @@ namespace WheelOfFortuneSystem
             if (value)
             {
                 _signalBus.Subscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
-                _signalBus.Subscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
             else
             {
                 _signalBus.Unsubscribe<OnCreateWheelItemsSignal>(CreateItemsCallback);
-                _signalBus.Unsubscribe<RequestNextWheelSpinSignal>(RequestNextWheelSpinCallback);
             }
         }
         
@@ -62,19 +76,21 @@ namespace WheelOfFortuneSystem
             var multiplier = signal.Multiplier;
             var baseType = signal.BaseType;
             
+            var dataList = new List<WheelItemData>();
+            for (int i = 0; i < count; i++)
+            {
+                var data = _config.GetRandomData(baseType, dataList);
+                dataList.Add(data);
+            }
+            
             _angle = 360f / count;
             for (int i = 0; i < count; i++)
             {
                 var item = _itemFactory.Create();
-                item.Prepare(parent, i * _angle, multiplier, baseType);
+                item.Prepare(parent, i * _angle, multiplier, dataList[i]);
                 _items.Add(item);
                 _weights.Add(item.GetWeight());
             }
-        }
-        
-        private void RequestNextWheelSpinCallback(RequestNextWheelSpinSignal signal)
-        {
-            
         }
     }
 }
