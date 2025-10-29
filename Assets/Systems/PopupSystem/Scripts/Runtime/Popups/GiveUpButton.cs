@@ -13,6 +13,7 @@ namespace PopupSystem
         private void OnEnable()
         {
             button.onClick.AddListener(ClickCallback);
+            button.interactable = true;
         }
 
         private void OnDisable()
